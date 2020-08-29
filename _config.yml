@@ -20,7 +20,7 @@ title                    : "Homepage"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : &name "Liangwang Ruan"
-description              : "Liangwang Ruan's homepage, for introductions, projects and blogs"
+description              : ""
 url                      : "www.lwruan.com"# the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "lwruan/lwruan.github.io"# GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -95,7 +95,7 @@ analytics:
 author:
   name             : *name
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "A student from Peking University"
+  bio              : "Computer Graphics, Physics"
   location         : "Beijing, China"
   email            : "lws.ruan@gmail.com"
   links:
@@ -117,6 +117,9 @@ author:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
+    - label: "Zhihu"
+      icon: "fab fa-fw fa-zhihu"
+      url: "https://www.zhihu.com/people/ruan-liang-wang-22"
 
 # Site Footer
 footer:
@@ -139,6 +142,9 @@ footer:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url:
+    - label: "Zhihu"
+      icon: "fab fa-fw fa-zhihu"
+      url: "https://www.zhihu.com/people/ruan-liang-wang-22"
 
 
 # Reading Files
