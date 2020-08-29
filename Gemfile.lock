@@ -252,6 +252,7 @@ DEPENDENCIES
   faraday (~> 0.17.3)
   github-pages (~> 206)
   jekyll (~> 3.8.7)
+  jekyll-feed (~> 0.13.0)
   jekyll-include-cache
 
 BUNDLED WITH

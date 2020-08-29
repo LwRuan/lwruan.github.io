@@ -9,4 +9,5 @@ gem "wdm", "~> 0.1.0" if Gem.win_platform?
 group :jekyll_plugins do
   gem "jekyll-include-cache"
   gem "faraday", "~> 0.17.3"
+  gem "jekyll-feed", "~> 0.13.0"
 end
