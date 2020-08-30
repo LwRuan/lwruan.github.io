@@ -7,4 +7,5 @@ This is the first post of this blog. 中文测试
 
 ![image test](/assets/images/Woman-with-a-Parasol.jpg)
 
-$G_{\mu\nu}=8\pi T_{\mu\nu}$
+$G_{\mu\nu}=8\pi T_{\mu\nu}$  
+\\( \partial^{\nu} F_{\mu\nu} = 0 \\)
