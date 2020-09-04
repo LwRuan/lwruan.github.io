@@ -151,6 +151,7 @@ footer:
 include:
   - .htaccess
   - _pages
+  - _categories
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -283,8 +284,16 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
+      toc: true
       # comments: # true
       # related: true
+  # _categories
+  - scope:
+      path: "_categories"
+      type: categories
+    values:
+      layout: category
+  # _pages
   - scope:
       path: "_pages"
       type: pages
