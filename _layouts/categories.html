@@ -31,7 +31,7 @@ layout: archive
     {% if category[1].size == i %}
       <section id="{{ category[0] | slugify | downcase }}" class="taxonomy__section">
 				<h2 class="archive__item-title no_toc">
-				  <a href="{{ category[0] | slugify }}">
+				  <a href="/categories/{{ category[0] | slugify }}">
             {{ category[0] }}  <span class="taxonomy__count">{{ i }}</span>
           </a>
 				</h2>

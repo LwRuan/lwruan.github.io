@@ -4,8 +4,6 @@ main:
     url: /curriculum/
   - title: "ARCHIVE"
     url: /blog/
-  - title: "CATEGORY"
-    url: /categories/
   # - title: "Quick-Start Guide"
   # url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   # - title: "About"
