@@ -11,7 +11,7 @@ One can easily import image in `Markdown` using `![image name](image path)`, ano
 ```html
 <div align="center"><img src="pic/image.png" alt="Image" style="zoom:%;" /></div>
 ```
-In this way you can change the position and size of the image. From official guide, it's recommanded to store all the images in `asssets/images/`, and also name the image like your post:`YY-MM-DD-title.jpg`.
+In this way you can change the position and size of the image. From official guide, it's recommanded to store all the images in `asssets/images/`, and also name the image like your post:`YY-MM-DD-title.jpg`.(html style of image is not originally supported in jekyll, so you might need some trick to set the right path for image)
 
 To add math support the most common choice is [mathjax](https://www.mathjax.org/). Just add these lines to the `default.html` layout before `<head>`:
 ```html
