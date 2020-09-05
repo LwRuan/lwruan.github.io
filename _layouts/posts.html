@@ -13,19 +13,19 @@ layout: archive
 
 <h1 class="page__title"> by Categories </h1>
 {% assign entries_layout = page.entries_layout | default: 'list' %}
+<ul class="taxonomy__index">
 {% for i in (1..categories_max) reversed %}
   {% for category in site.categories %}
     {% if category[1].size == i %}
-      <section id="{{ category[0] | slugify | downcase }}" class="taxonomy__      section">
 				<li>
           <a href="/categories/{{ category[0] | slugify }}">
-            {{ category[0] }}  <span class="taxonomy__count">{{ i }}</span>
+				    <strong>{{ category[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
           </a>
 				</li>
-      </section>
     {% endif %}
   {% endfor %}
 {% endfor %}
+</ul>
 <br>
 
 <h1 class="Page__title"> by Years </h1>
