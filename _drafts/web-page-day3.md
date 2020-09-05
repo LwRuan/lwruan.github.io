@@ -39,6 +39,6 @@ The next step should be grouping all the summary pages in one `categories` page 
 
 ```
 Now my `BLOG` page will look like this:
-<div align="center"><img src="/assets/images/" alt="Image" style="zoom:%;" /></div>
+<div align="center"><img src="/assets/images/2020-9-5-screenshot.png" alt="Image" style="zoom:%;" /></div>
 
 Click the `jekyll` category will lead you `categories/jekyll` page, exactlly as I expected. And also one thing need to change is the bottom `category list` at each post's page, click it you will find you go to `categories/#jekyll`, this is not the page we want but the position in minimal-mistakes's `categories` layout. To modify this, go to `_include/category-list.html` and change `{% assign path_type = "#" %}` to `{% assign path_type = "" %}`, this will delete the `#` in relative path.
