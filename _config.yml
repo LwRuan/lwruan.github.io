@@ -267,6 +267,12 @@ tag_archive:
 #     tag: /tags/:name/
 
 
+collections:
+  slides:
+    output: true
+    path: "_slides"
+    permalink: /slides/:path
+
 # HTML Compression
 # - https://jch.penibelst.de/
 compress_html:
