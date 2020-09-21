@@ -152,6 +152,7 @@ include:
   - .htaccess
   - _pages
   - _categories
+  - _slides
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
