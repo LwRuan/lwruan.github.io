@@ -152,6 +152,7 @@ include:
   - .htaccess
   - _pages
   - _categories
+  - _slides
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -266,6 +267,11 @@ tag_archive:
 #     tag: /tags/:name/
 
 
+collections:
+  slides-md:
+    output: true
+    permalink: /slides/:name
+
 # HTML Compression
 # - https://jch.penibelst.de/
 compress_html:
@@ -294,6 +300,10 @@ defaults:
     values:
       layout: category
   # _pages
+  - scope:
+      path: "_slides-md"
+    values:
+      layout: single
   - scope:
       path: "_pages"
       type: pages
