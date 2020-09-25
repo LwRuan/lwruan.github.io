@@ -81,7 +81,7 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="/assets/reveal.js/dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="/assets/reveal.js/dist/theme/white.css" id="theme">
 </head>
 <body>
   <div class="reveal">
@@ -93,24 +93,91 @@
   <p class="date">2020/9/21</p>
 </section>
 
-<section id="foo" class="slide level1">
-<h1>Foo</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="bu">print</span>(<span class="st">&quot;hello world&quot;</span>)</span></code></pre></div>
+<section>
+<section id="first-slides" class="title-slide slide level1">
+<h1>First Slides</h1>
+<p>some introduction</p>
 </section>
-<section id="bar" class="slide level1">
-<h1>Bar</h1>
+<section id="verticle" class="slide level2">
+<h2>Verticle?</h2>
+<p>go down</p>
+</section>
+<section id="incremental-lists" class="slide level2">
+<h2>Incremental lists</h2>
+<div>
 <ul>
-<li>test</li>
-<li>test</li>
+<li class="fragment">Hello</li>
+<li class="fragment">Another</li>
+<li class="fragment"><span class="math inline"><em>F</em> = <em>m</em><em>a</em></span></li>
 </ul>
+</div>
 </section>
-<section id="test-image" class="slide level1">
+<section id="wait" class="slide level2">
+<h2>Wait</h2>
+<p>just wait for a moment</p>
+<div class="fragment">
+<p>Surprise!</p>
+<aside class="notes">
+<p>This is my note.</p>
+<ul>
+<li>It can contain Markdown</li>
+<li>like this list</li>
+</ul>
+</aside>
+</div>
+</section></section>
+<section id="columns" class="title-slide slide level1">
+<h1>Columns</h1>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>:::: {.columns}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>::: {.column width=&quot;40%&quot;}</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>contents...</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>:::</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>::: {.column width=&quot;60%&quot;}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>contents...</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>:::</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>::::</span></code></pre></div>
+</div><div class="column" style="width:60%;">
+<p>contents…</p>
+</div>
+</div>
+</section>
+
+<section id="code" class="title-slide slide level1">
+<h1>Code</h1>
+<div class="columns">
+<div class="column">
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">#!/usr/bin/ruby</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>require <span class="st">&#39;find&#39;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>puts <span class="st">&quot;Generate all slides&quot;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="dt">Find</span>.find(<span class="st">&#39;_slides-md&#39;</span>) <span class="kw">do</span> |path|</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>    <span class="kw">if</span> path != <span class="st">&#39;_slides-md&#39;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>        output_path = path.sub(<span class="st">&quot;_slides-md/&quot;</span>, <span class="st">&quot;_slides/&quot;</span>).sub(<span class="st">&quot;.md&quot;</span>, <span class="st">&quot;.html&quot;</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>        puts <span class="st">&quot;source file: &quot;</span> + path</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>        puts <span class="st">&quot;output file: &quot;</span> + output_path</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>        system <span class="st">&quot;pandoc -t revealjs -s -o &quot;</span> + output_path + <span class="st">&quot; &quot;</span> + path + </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>        <span class="st">&quot; -V revealjs-url=/assets/reveal.js --slide-level 2 -V theme=white&quot;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>    <span class="kw">end</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a><span class="kw">end</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>puts <span class="st">&quot;Start server&quot;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>exec <span class="st">&quot;bundle exec jekyll serve --draft&quot;</span></span></code></pre></div>
+</div><div class="column">
+<p><img data-src="/assets/images/Woman-with-a-Parasol.jpg" height="400" /></p>
+</div>
+</div>
+</section>
+
+<section id="test-image" class="title-slide slide level1">
 <h1>test image</h1>
 <figure>
 <img data-src="/assets/images/Woman-with-a-Parasol.jpg" alt="image test" /><figcaption aria-hidden="true">image test</figcaption>
 </figure>
 </section>
-<section id="test-equation" class="slide level1">
+
+<section id="test-equation" class="title-slide slide level1">
 <h1>test equation</h1>
 <p><span class="math display"><em>G</em><sub><em>μ</em><em>ν</em></sub> = 8<em>π</em><em>T</em><sub><em>μ</em><em>ν</em></sub></span></p>
 </section>
