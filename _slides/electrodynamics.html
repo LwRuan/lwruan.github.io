@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="dcterms.date" content="2020-09-25">
-  <title>Electrodynamics</title>
+  <title>磁性物质模拟基础</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -17,72 +17,95 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="/assets/reveal.js/dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="/assets/reveal.js/dist/theme/white.css" id="theme">
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">Electrodynamics</h1>
+  <h1 class="title">磁性物质模拟基础</h1>
   <p class="date">2020-09-25</p>
 </section>
 
-<section id="磁化" class="slide level1">
+<section>
+<section id="磁化" class="title-slide slide level1">
 <h1>磁化</h1>
-<p>磁荷未被观测到，物质内的原子中的电子在绕核旋转时形成电流，圈电流形成<strong>磁矩</strong>: <span class="math display"><em>m⃗</em> = <em>I</em><em>S⃗</em></span><br />
-在无外场作用下，磁矩随机分布，宏观磁化强度为0，定义宏观中的磁化强度为： <span class="math display">$$
+<p>磁荷未被观测到，物质内的原子中的电子在绕核旋转时形成电流，圈电流形成<strong>磁矩</strong>: <span class="math display">\[
+\vec{m} = I\vec{S}
+\]</span></p>
+<div class="fragment">
+<p>在无外场作用下，磁矩随机分布，宏观磁化强度为0，定义宏观中的磁化强度为： <span class="math display">\[
 \vec{M} = \frac{\sum \vec{m}_i}{V}
-$$</span> 在外场作用下，磁矩会倾向转到与外场相同的方向，这时<span class="math inline"><em>M⃗</em></span>不为0，但是注意两点：</p>
+\]</span></p>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p>在外场作用下，磁矩会倾向转到与外场相同的方向，这时<span class="math inline">\(\vec{M}\)</span>不为0，但是注意两点：</p>
 <ul>
-<li>磁矩方向与外场不完全相同</li>
+<li>微观磁矩方向随机分布，宏观上<span class="math inline">\(\vec{M}\)</span>倾向于外场方向</li>
 <li>磁化过程需要时间</li>
 </ul>
-</section>
-<section id="磁场" class="slide level1">
-<h1>磁场</h1>
+</section></section>
+<section>
+<section id="磁场描述" class="title-slide slide level1">
+<h1>磁场描述</h1>
 <ul>
-<li>磁场强度：<span class="math inline"><em>H⃗</em></span></li>
-<li>磁感应强度：<span class="math inline"><em>B⃗</em></span></li>
-<li>磁化强度：<span class="math inline"><em>M⃗</em></span></li>
+<li>磁场强度：<span class="math inline">\(\vec{H}\)</span></li>
+<li>磁感应强度：<span class="math inline">\(\vec{B}\)</span></li>
+<li>磁化强度：<span class="math inline">\(\vec{M}\)</span></li>
 </ul>
-<p>满足关系<span class="math inline"><em>B⃗</em> = <em>μ</em><sub>0</sub>(<em>H⃗</em> + <em>M⃗</em>)</span></p>
-<p>当施加外场<span class="math inline"><em>H⃗</em><sub><em>e</em></sub></span>时，物质会磁化出<span class="math inline"><em>M⃗</em></span>，注意<span class="math inline"><em>M⃗</em></span> 也会在产生磁场<span class="math inline"><em>H⃗</em><sub><em>i</em></sub></span>，平衡之后物质内的磁场应该是二者的叠加<span class="math inline"><em>H⃗</em> = <em>H⃗</em><sub><em>e</em></sub> + <em>H⃗</em><sub><em>i</em></sub></span>。平衡之后，<span class="math inline"><em>M⃗</em></span>与<span class="math inline"><em>H⃗</em></span>满足关系<span class="math inline"><em>M⃗</em> = <em>f</em>(<em>H⃗</em>)</span>，有如下几种模型：</p>
+<p>满足关系<span class="math inline">\(\vec{B}=\mu_0(\vec{H}+\vec{M})\)</span></p>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p>当施加外场<span class="math inline">\(\vec{H}_e\)</span>时，物质会磁化出<span class="math inline">\(\vec{M}\)</span>，注意<span class="math inline">\(\vec{M}\)</span> 也会在产生磁场<span class="math inline">\(\vec{H}_i\)</span>，平衡之后物质内的磁场应该是二者的叠加<span class="math inline">\(\vec{H}=\vec{H}_e+\vec{H}_i\)</span>。平衡之后，<span class="math inline">\(\vec{M}\)</span>与<span class="math inline">\(\vec{H}\)</span>满足关系<span class="math inline">\(\vec{M}=f(\vec{H})\)</span>，有如下几种模型：</p>
+<div class="fragment">
 <ul>
-<li><span class="math inline"><em>M⃗</em> = <em>χ</em><em>H⃗</em></span>, 最简单的线性磁化</li>
+<li><span class="math inline">\(\vec{M}=\chi \vec{H}\)</span>, 最简单的线性磁化</li>
 <li>考虑物质的微观模型，当外部磁场过大时，物质内的磁矩全部沿外磁场方向达到最大</li>
 <li>考虑剩磁，磁滞回线</li>
 </ul>
-</section>
-<section id="麦克斯韦方程组" class="slide level1">
+</div>
+</section></section>
+<section>
+<section id="麦克斯韦方程组" class="title-slide slide level1">
 <h1>麦克斯韦方程组</h1>
-<p>在静磁场中满足： <span class="math display">$$
+<p>在静磁场中满足： <span class="math display">\[
 \begin{aligned}
                 \nabla \cdot \vec{B} &amp;= 0\\
                 \nabla \times \vec{H} &amp;= 0
 \end{aligned}
-$$</span> 代入<span class="math inline"><em>B⃗</em> = <em>μ</em><sub>0</sub>(<em>H⃗</em> + <em>M⃗</em>)</span>和<span class="math inline"><em>M⃗</em> = <em>f</em>(<em>H⃗</em>)</span>，将<span class="math inline"><em>H⃗</em></span>写成标量场梯度，就可以解出<span class="math inline"><em>H⃗</em></span>。</p>
-<h2 id="电磁力">电磁力</h2>
-<p>在物质当中的应力张量的形式存在分歧，主要原因在于机械能和电磁场能的划分。</p>
+\]</span> 代入<span class="math inline">\(\vec{B}=\mu_0(\vec{H}+\vec{M})\)</span>和<span class="math inline">\(\vec{M}=f(\vec{H})\)</span>，将<span class="math inline">\(\vec{H}\)</span>写成标量场梯度，就可以解出<span class="math inline">\(\vec{H}\)</span>，再回去计算<span class="math inline">\(\vec{M}\)</span>和<span class="math inline">\(\vec{B}\)</span>。</p>
 </section>
-<section id="模拟" class="slide level1">
+<section id="电磁力" class="slide level2">
+<h2>电磁力</h2>
+<p>在物质当中的应力张量的形式存在分歧，主要原因在于机械能和电磁场能的划分。</p>
+</section></section>
+<section>
+<section id="模拟" class="title-slide slide level1">
 <h1>模拟</h1>
-<h2 id="最简单">最简单</h2>
-<p>将所有<span class="math inline"><em>M⃗</em></span>存在网格上，计算网络之间的力和力矩，问题：</p>
+
+</section>
+<section id="最简单" class="slide level2">
+<h2>最简单</h2>
+<p>将所有<span class="math inline">\(\vec{M}\)</span>存在网格上，计算网络之间的力和力矩，问题：</p>
 <ul>
-<li>不考虑二次磁化产生的<span class="math inline"><em>H⃗</em><sub><em>i</em></sub></span></li>
+<li>不考虑二次磁化产生的<span class="math inline">\(\vec{H}_i\)</span></li>
 <li>只考虑线性磁化</li>
 </ul>
-<h2 id="考虑微观磁化过程">考虑微观磁化过程</h2>
-<p>考虑朗道方程： <span class="math display">$$
-\frac{d\vec{M}}{dt} = -\gamma (\vec{M}\times \vec{H}_{eff} - \eta \vec{M}\times \frac{d\vec{M}}{dt})
-$$</span> 即考虑微观的磁化过程，注意微观<span class="math inline"><em>M⃗</em></span>的大小并不会发生改变，只会改变方向。</p>
-<p>每个cell中sample两个点，组合之后得到cell的磁化强度： <span class="math display">$$
-\vec{M} = \frac{1}{2}(\vec{m}_1+\vec{m}_2)M_s
-$$</span></p>
 </section>
+<section id="考虑微观磁化过程" class="slide level2">
+<h2>考虑微观磁化过程</h2>
+<p>考虑朗道方程： <span class="math display">\[
+\frac{d\vec{M}}{dt} = -\gamma (\vec{M}\times \vec{H}_{eff} - \eta \vec{M}\times \frac{d\vec{M}}{dt})
+\]</span> 即考虑微观的磁化过程，注意微观<span class="math inline">\(\vec{M}\)</span>的大小并不会发生改变，只会改变方向。</p>
+<p>每个cell中sample两个点，组合之后得到cell的磁化强度： <span class="math display">\[
+\vec{M} = \frac{1}{2}(\vec{m}_1+\vec{m}_2)M_s
+\]</span></p>
+</section></section>
     </div>
   </div>
 
@@ -92,6 +115,7 @@ $$</span></p>
   <script src="/assets/reveal.js/plugin/notes/notes.js"></script>
   <script src="/assets/reveal.js/plugin/search/search.js"></script>
   <script src="/assets/reveal.js/plugin/zoom/zoom.js"></script>
+  <script src="/assets/reveal.js/plugin/math/math.js"></script>
 
   <script>
 
@@ -100,9 +124,26 @@ $$</span></p>
       Reveal.initialize({
         // Push each slide change to the browser history
         history: true,
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
 
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

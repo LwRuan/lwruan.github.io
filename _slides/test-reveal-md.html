@@ -79,7 +79,6 @@
     code span.va { color: #19177c; } /* Variable */
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="/assets/reveal.js/dist/theme/white.css" id="theme">
 </head>
@@ -108,7 +107,7 @@
 <ul>
 <li class="fragment">Hello</li>
 <li class="fragment">Another</li>
-<li class="fragment"><span class="math inline"><em>F</em> = <em>m</em><em>a</em></span></li>
+<li class="fragment"><span class="math inline">\(F=ma\)</span></li>
 </ul>
 </div>
 </section>
@@ -179,7 +178,7 @@
 
 <section id="test-equation" class="title-slide slide level1">
 <h1>test equation</h1>
-<p><span class="math display"><em>G</em><sub><em>μ</em><em>ν</em></sub> = 8<em>π</em><em>T</em><sub><em>μ</em><em>ν</em></sub></span></p>
+<p><span class="math display">\[G_{\mu\nu}=8\pi T_{\mu\nu}\]</span></p>
 </section>
     </div>
   </div>
@@ -190,6 +189,7 @@
   <script src="/assets/reveal.js/plugin/notes/notes.js"></script>
   <script src="/assets/reveal.js/plugin/search/search.js"></script>
   <script src="/assets/reveal.js/plugin/zoom/zoom.js"></script>
+  <script src="/assets/reveal.js/plugin/math/math.js"></script>
 
   <script>
 
@@ -198,9 +198,26 @@
       Reveal.initialize({
         // Push each slide change to the browser history
         history: true,
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
 
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
