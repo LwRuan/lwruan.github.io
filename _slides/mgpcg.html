@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="dcterms.date" content="2020-09-29">
+  <title>MGPCG</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="/assets/reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="/assets/reveal.js/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/assets/reveal.js/dist/theme/white.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">MGPCG</h1>
+  <p class="date">2020-09-29</p>
+</section>
+
+<section id="conjugate-gradient" class="title-slide slide level1">
+<h1>Conjugate Gradient</h1>
+<ul>
+<li><strong>Problem</strong>: <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span>, <span class="math inline">\(\mathbf{A}\)</span> is SPD(symmetric positive-definite)</li>
+<li><strong>Definition</strong>: <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{v}\)</span> are <strong>conjugate</strong> if <span class="math display">\[
+\mathbf{u}^T\mathbf{A}\mathbf{v}=0
+\]</span></li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="/assets/reveal.js/dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="/assets/reveal.js/plugin/notes/notes.js"></script>
+  <script src="/assets/reveal.js/plugin/search/search.js"></script>
+  <script src="/assets/reveal.js/plugin/zoom/zoom.js"></script>
+  <script src="/assets/reveal.js/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
