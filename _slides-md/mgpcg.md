@@ -102,8 +102,7 @@ $$
 * Let $P$ be $\{\mathbf{r}_k\}$'s Gram-Schimidt orthogonalization: $\mathbf{p}_i = \mathbf{r}_i + \sum_{k=0}^{i-1}\beta_{ik}\mathbf{p}_k$
 * Rewrite $\mathbf{r}_i = \mathbf{p}_i - \sum_{k=0}^{i-1}\beta_{ik}\mathbf{p}_k$, also $\mathbf{r_k} \perp B_k$ $\implies \mathbf{r}_i^T\mathbf{r}_j=0$ for $i \neq j$, $\{\mathbf{r}_k\}$ is othogonal basis
 * $\beta_{ik} = - \frac{\mathbf{r}_i^T\mathbf{A}\mathbf{p}_k}{\langle \mathbf{p}_k,\mathbf{p}_k\rangle_A}$ also $\mathbf{r}_{k+1}=\mathbf{r}_k-\alpha_k\mathbf{A}\mathbf{p}_k$ $\implies \beta_{ik}=\frac{\mathbf{r}_i^T\mathbf{r}_{k+1}-\mathbf{r}_i^T\mathbf{r}_{k}}{\mathbf{r}_i^T\mathbf{r}_i}$ non-zero when $k=i-1$
-* Then can be simplified to $\mathbf{p}_k = \mathbf{r}_k-\beta_{k-1}\mathbf{P}_{k-1}$, where
-$$\beta_{k-1} = \frac{\mathbf{r}_k^T\mathbf{r}_k}{\mathbf{r}_{k-1}^T\mathbf{r}_{k-1}}$$
+* Then can be simplified to $\mathbf{p}_k = \mathbf{r}_k-\beta_{k-1}\mathbf{P}_{k-1}$, where$\beta_{k-1} = \frac{\mathbf{r}_k^T\mathbf{r}_k}{\mathbf{r}_{k-1}^T\mathbf{r}_{k-1}}$
 :::
 
 ## Conjugate Gradient Algorithm 
@@ -132,3 +131,4 @@ $$\lVert\mathbf{e}_k\rVert_\mathbf{A} \leq 2\left( \frac{\sqrt{\kappa(\mathbf{A}
 * Smaller $\kappa(\mathbf{A})$, Faster Convergence!
 
 # PCG: +Precondition
+
