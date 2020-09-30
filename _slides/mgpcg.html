@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="dcterms.date" content="2020-09-29">
+  <meta name="author" content="Liangwang Ruan">
   <title>MGPCG</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -88,7 +88,8 @@
 
 <section id="title-slide">
   <h1 class="title">MGPCG</h1>
-  <p class="date">2020-09-29</p>
+  <p class="author">Liangwang Ruan</p>
+  <p class="date">2020-10-2</p>
 </section>
 
 <section>
@@ -199,7 +200,7 @@
 <li class="fragment">Let <span class="math inline">\(P\)</span> be <span class="math inline">\(\{\mathbf{r}_k\}\)</span>’s Gram-Schimidt orthogonalization: <span class="math inline">\(\mathbf{p}_i = \mathbf{r}_i + \sum_{k=0}^{i-1}\beta_{ik}\mathbf{p}_k\)</span></li>
 <li class="fragment">Rewrite <span class="math inline">\(\mathbf{r}_i = \mathbf{p}_i - \sum_{k=0}^{i-1}\beta_{ik}\mathbf{p}_k\)</span>, also <span class="math inline">\(\mathbf{r_k} \perp B_k\)</span> <span class="math inline">\(\implies \mathbf{r}_i^T\mathbf{r}_j=0\)</span> for <span class="math inline">\(i \neq j\)</span>, <span class="math inline">\(\{\mathbf{r}_k\}\)</span> is othogonal basis</li>
 <li class="fragment"><span class="math inline">\(\beta_{ik} = - \frac{\mathbf{r}_i^T\mathbf{A}\mathbf{p}_k}{\langle \mathbf{p}_k,\mathbf{p}_k\rangle_A}\)</span> also <span class="math inline">\(\mathbf{r}_{k+1}=\mathbf{r}_k-\alpha_k\mathbf{A}\mathbf{p}_k\)</span> <span class="math inline">\(\implies \beta_{ik}=\frac{\mathbf{r}_i^T\mathbf{r}_{k+1}-\mathbf{r}_i^T\mathbf{r}_{k}}{\mathbf{r}_i^T\mathbf{r}_i}\)</span> non-zero when <span class="math inline">\(k=i-1\)</span></li>
-<li class="fragment">Then can be simplified to <span class="math inline">\(\mathbf{p}_k = \mathbf{r}_k-\beta_{k-1}\mathbf{P}_{k-1}\)</span>, where<span class="math inline">\(\beta_{k-1} = \frac{\mathbf{r}_k^T\mathbf{r}_k}{\mathbf{r}_{k-1}^T\mathbf{r}_{k-1}}\)</span></li>
+<li class="fragment">Then can be simplified to <span class="math inline">\(\mathbf{p}_k = \mathbf{r}_k-\beta_{k-1}\mathbf{P}_{k-1}\)</span>, where <span class="math inline">\(\beta_{k-1} = \frac{\mathbf{r}_k^T\mathbf{r}_k}{\mathbf{r}_{k-1}^T\mathbf{r}_{k-1}}\)</span></li>
 </ul>
 </div>
 </section>
@@ -227,10 +228,63 @@
 <li>Smaller <span class="math inline">\(\kappa(\mathbf{A})\)</span>, Faster Convergence!</li>
 </ul>
 </section></section>
+<section>
 <section id="pcg-precondition" class="title-slide slide level1">
 <h1>PCG: +Precondition</h1>
 
 </section>
+<section id="preconditioning" class="slide level2">
+<h2>Preconditioning</h2>
+<div>
+<ul>
+<li class="fragment"><span class="math inline">\(\mathbf{M}\)</span> is a SPD matrix that approximates <span class="math inline">\(\mathbf{A}\)</span> but easy to invert</li>
+<li class="fragment"><span class="math inline">\(\mathbf{M}^{-1}A\)</span> is better conditioned than <span class="math inline">\(A\)</span></li>
+<li class="fragment">Suppose <span class="math inline">\(\mathbf{M} = \mathbf{E}\mathbf{E}^T\)</span>, we can solve <span class="math display">\[\mathbf{E}^{-1}\mathbf{A}\mathbf{E}^{-T}\hat{\mathbf{x}} = \mathbf{E}^{-1}b,\ \hat{\mathbf{x}} = \mathbf{E}^T\mathbf{x}\]</span></li>
+</ul>
+</div>
+</section>
+<section id="variable-substitutions" class="slide level2">
+<h2>Variable Substitutions</h2>
+<div>
+<ul>
+<li class="fragment">Directly apply preconditioning to CG we can get something like <span class="math inline">\(\alpha_k = \frac{\hat{\mathbf{r}}_k^T\hat{\mathbf{r}}_k}{\hat{\mathbf{p}}_k^T\mathbf{E}^{-1}\mathbf{A}\mathbf{E}^{-T}\hat{\mathbf{p}}_k}\)</span></li>
+<li class="fragment">To simplify, let <span class="math inline">\(\mathbf{r}_i = \mathbf{E}\hat{\mathbf{r}}_i\)</span>, <span class="math inline">\(\mathbf{p}_i = \mathbf{E}^{-T}\hat{\mathbf{p}}_i\)</span>, <span class="math inline">\(\mathbf{x} = \mathbf{E}^{-T}\hat{\mathbf{x}}\)</span>, <span class="math inline">\(\mathbf{E}^{-T}\mathbf{E}^{-1}=\mathbf{M}^{-1}\)</span></li>
+<li class="fragment"><span class="math inline">\(\mathbf{E}\)</span> disappears, only <span class="math inline">\(\mathbf{M}^{-1}\)</span> left, <span class="math inline">\(\alpha_k = \frac{\mathbf{r}_k^T\mathbf{M}^{-1}\mathbf{r}_k}{\mathbf{p}_k^T\mathbf{A}\mathbf{p}_k}\)</span></li>
+</ul>
+</div>
+</section>
+<section id="pcg-algorithm" class="slide level2">
+<h2>PCG Algorithm</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>r <span class="op">=</span> b <span class="op">-</span> A<span class="op">*</span>x</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>p <span class="op">=</span> M.inverse()<span class="op">*</span>r</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>p_pre <span class="op">=</span> p</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>r_pre <span class="op">=</span> r</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>k <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="cf">while</span> r.norm() <span class="op">&gt;</span> err <span class="kw">and</span> k <span class="op">&lt;</span> n:</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>    alpha <span class="op">=</span> r.transpose()<span class="op">*</span>M.inverse()<span class="op">*</span>r<span class="op">/</span>(p.transpose()<span class="op">*</span>A<span class="op">*</span>p)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>    x <span class="op">=</span> x <span class="op">+</span> alpha<span class="op">*</span>p_pre</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>    r <span class="op">=</span> r_pre <span class="op">-</span> alpha<span class="op">*</span>A<span class="op">*</span>p_pre</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>    beta <span class="op">=</span> r.transpose()<span class="op">*</span>M.inverse()<span class="op">*</span>r<span class="op">/</span>r_pre.transpose()<span class="op">*</span>M.inverse()<span class="op">*</span>r_pre</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>    p <span class="op">=</span> M.inverse()<span class="op">*</span>r <span class="op">+</span> beta<span class="op">*</span>p_pre</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>    p_pre <span class="op">=</span> p</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>    r_pre <span class="op">=</span> r</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>    k <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
+</section>
+<section id="different-m" class="slide level2">
+<h2>Different M</h2>
+<div>
+<ul>
+<li class="fragment"><strong>Jacobi</strong>: <span class="math inline">\(\mathbf{M} = diag\{a_{11}, a_{22}, \cdots, a_{nn}\}\)</span></li>
+<li class="fragment"><strong>Block Jacobi</strong>: blocked diagnal</li>
+<li class="fragment"><strong>Incomplete Cholesky</strong>: imcomplete Cholesky Factorization(<span class="math inline">\(\mathbf{A}=\mathbf{R}^T\mathbf{R}\)</span> where <span class="math inline">\(\mathbf{R}\)</span> is upper triangle matrix), <span class="math inline">\(\mathbf{M}=\hat{\mathbf{R}}^T\hat{\mathbf{R}}\)</span>, not for all <span class="math inline">\(\mathbf{A}\)</span></li>
+<li class="fragment">If <span class="math inline">\(\mathbf{A}\)</span> is irreducibly diagonally dominant, <strong>ICPCG</strong> works, that is
+<ul>
+<li class="fragment"><span class="math inline">\(\lvert a_{jj} \rvert \geq \sum_{i\neq j} \lvert a_{ij} \rvert\)</span>, <span class="math inline">\(j=1,\cdots,n\)</span></li>
+<li class="fragment">no permutation such that <span class="math inline">\(\mathbf{P}\mathbf{A}\mathbf{P}^T=diag\{\mathbf{A}_1,\mathbf{A}_2\}\)</span></li>
+</ul></li>
+</ul>
+</div>
+</section></section>
     </div>
   </div>
 
