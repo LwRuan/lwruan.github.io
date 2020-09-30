@@ -92,8 +92,8 @@
 </section>
 
 <section>
-<section id="conjugate-gradient" class="title-slide slide level1">
-<h1>Conjugate Gradient</h1>
+<section id="g-gradient" class="title-slide slide level1">
+<h1>G: Gradient</h1>
 
 </section>
 <section id="gradient-descent" class="slide level2">
@@ -103,7 +103,7 @@
 <li class="fragment"><strong>Problem</strong>: <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span>, <span class="math inline">\(\mathbf{A}\)</span> is SPD(symmetric positive-definite)</li>
 <li class="fragment">The solution <span class="math inline">\(\mathbf{x}^*\)</span> minimize this function:<span class="math inline">\(f(\mathbf{x}) = \frac{1}{2}\mathbf{x}^TA\mathbf{x}-\mathbf{x}^T\mathbf{b}\)</span></li>
 <li class="fragment"><strong>Property</strong>: The gradient at <span class="math inline">\(\mathbf{x}\)</span> is <span class="math inline">\(\nabla f = \mathbf{A}\mathbf{x}-\mathbf{b}=-\mathbf{r}\)</span></li>
-<li class="fragment">Interative solver: <span class="math inline">\(\mathbf{x}_{k+1} = \mathbf{x}_k + \alpha_k \mathbf{r}_k\)</span>, find <span class="math inline">\(\alpha_k\)</span> to minimize <span class="math inline">\(f(\mathbf{x}_{k+1})\)</span></li>
+<li class="fragment">Iterative solver: <span class="math inline">\(\mathbf{x}_{k+1} = \mathbf{x}_k + \alpha_k \mathbf{r}_k\)</span>, find <span class="math inline">\(\alpha_k\)</span> to minimize <span class="math inline">\(f(\mathbf{x}_{k+1})\)</span></li>
 </ul>
 </div>
 </section>
@@ -115,13 +115,17 @@
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    x <span class="op">=</span> x <span class="op">+</span> a<span class="op">*</span>r</span></code></pre></div>
 <div>
 <ul>
-<li class="fragment"><strong>Pros</strong>: Applied to any kind of equation</li>
-<li class="fragment"><strong>Cons</strong>: Slow</li>
+<li class="fragment"><strong>drawback</strong>: Slow convergence</li>
 </ul>
 </div>
+</section></section>
+<section>
+<section id="cg-conjugacy" class="title-slide slide level1">
+<h1>CG: +Conjugacy</h1>
+
 </section>
-<section id="conjugation" class="slide level2">
-<h2>Conjugation</h2>
+<section id="conjugacy" class="slide level2">
+<h2>conjugacy</h2>
 <ul>
 <li><span class="math inline">\(\mathbf{A}\)</span> is SPD</li>
 <li><strong>Definition</strong>: <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{v}\)</span> are <strong>conjugate</strong> if <span class="math display">\[
@@ -133,23 +137,100 @@
 <h2>Conjugate Vectors Basis</h2>
 <div>
 <ul>
-<li class="fragment"><strong>Property</strong>: <span class="math inline">\(P=\{\mathbf{p}_1,\cdots,\mathbf{p}_n\}\)</span> and <span class="math inline">\(\langle \mathbf{p}_i, \mathbf{p}_j \rangle_A = \delta_{ij}\)</span>, then <span class="math inline">\(P\)</span> forms a basis of <span class="math inline">\(\mathbb{R}^n\)</span></li>
+<li class="fragment"><strong>Property</strong>: <span class="math inline">\(P=\{\mathbf{p}_0,\cdots,\mathbf{p}_{n-1}\}\)</span> and <span class="math inline">\(\langle \mathbf{p}_i, \mathbf{p}_j \rangle_A = \delta_{ij}\)</span>, then <span class="math inline">\(P\)</span> forms a basis of <span class="math inline">\(\mathbb{R}^n\)</span></li>
 <li class="fragment">Suppose the solution of <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> is <span class="math inline">\(\mathbf{x}^*\)</span>, we can decompose it as <span class="math display">\[
-\mathbf{x}^* = \sum_{i=1}^n\alpha_i\mathbf{p}_i\]</span></li>
-<li class="fragment">Then we can easily get <span class="math display">\[
-\alpha_k = \frac{\langle \mathbf{p}_k, \mathbf{b}\rangle}{\langle \mathbf{p}_k, \mathbf{p}_k\rangle_A}\]</span></li>
+\mathbf{x}^* = \sum_{i=0}^{n-1}\alpha_i\mathbf{p}_i\]</span></li>
+<li class="fragment">Using conjugacy property we have:<span class="math inline">\(\alpha_k = \frac{\langle \mathbf{p}_k, \mathbf{b}\rangle}{\langle \mathbf{p}_k, \mathbf{p}_k\rangle_A}\)</span></li>
 </ul>
 </div>
 </section>
 <section id="as-interative-solver" class="slide level2">
 <h2>As Interative Solver</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
 <div>
 <ul>
 <li class="fragment">Find a sequence of <span class="math inline">\(n\)</span> conjugate directions and corresponding <span class="math inline">\(\alpha_k\)</span></li>
-<li class="fragment">Stop for at most <span class="math inline">\(n\)</span> steps</li>
+<li class="fragment">Stop for at most <span class="math inline">\(n\)</span> steps or even faster if <span class="math inline">\(P\)</span> is well choosed, faster than steepest descent</li>
+<li class="fragment">No need to calculate the inverse of the Hessian matrix like in Newton method</li>
+<li class="fragment">How to find <span class="math inline">\(P\)</span>?</li>
 </ul>
 </div>
+</div><div class="column" style="width:30%;">
+<p><img data-src="/assets/images/conjugate-gradient.png" height="400" /></p>
+</div>
+</div>
+</section>
+<section id="key-observation" class="slide level2">
+<h2>Key Observation</h2>
+<div>
+<ul>
+<li class="fragment">Suppose <span class="math inline">\(P\)</span> is known, and <span class="math inline">\(\mathbf{r}_0 = \mathbf{p}_0\)</span></li>
+<li class="fragment">Follow iteration steps, let <span class="math inline">\(\alpha_k\)</span> minimize <span class="math inline">\(f(\mathbf{x}_k+\alpha_k\mathbf{p}_k)\)</span>, then we have <span class="math inline">\(\alpha_k = \frac{\mathbf{r}_k^T\mathbf{p}_k}{\langle \mathbf{p}_k, \mathbf{p}_k \rangle_A}\)</span></li>
+<li class="fragment"><strong>Define</strong>: <span class="math inline">\(B_k = span\{\mathbf{p}_0,\cdots,\mathbf{p}_{k-1}\}\)</span></li>
+<li class="fragment"><strong>Theorem</strong>: <span class="math inline">\(\mathbf{x}_k\)</span> minimize <span class="math inline">\(f(\mathbf{x})\)</span> in subspace <span class="math inline">\(\mathbf{x}_0+B_k\)</span>, since <span class="math inline">\(B_n = \mathbb{R}^n\)</span>, <span class="math inline">\(\mathbf{x}_n = \mathbf{x}^*\)</span></li>
+<li class="fragment"><strong>Lemma</strong>: <span class="math inline">\(\mathbf{r}_k \perp B_k\)</span></li>
+</ul>
+</div>
+<aside class="notes">
+<ul>
+<li><span class="math inline">\(\mathbf{r}_k\)</span> is gradient, so lemma leads to theorem</li>
+<li>step k is the best result in <span class="math inline">\(B_k\)</span>, stronger insurance than pure gradient descentb</li>
+<li>proof using SPD property and P is conjugate basis</li>
+</ul>
+</aside>
+</section>
+<section id="inductive-proof" class="slide level2">
+<h2>Inductive Proof</h2>
+<div>
+<ul>
+<li class="fragment">Initially <span class="math inline">\(\mathbf{r}_0 \perp B_0=\phi\)</span></li>
+<li class="fragment"><span class="math inline">\(\mathbf{r}_{k+1} \perp \mathbf{p}_k\)</span> since <span class="math inline">\(\alpha_k\)</span> minimize <span class="math inline">\(f(\mathbf{x}_k+\alpha_k\mathbf{p}_k)\)</span> and <span class="math inline">\(\mathbf{r}_{k+1}=-\nabla f(\mathbf{x}_{k+1})\)</span></li>
+<li class="fragment"><span class="math inline">\(\mathbf{r}_{k+1} = \mathbf{b} - \mathbf{A}\mathbf{x}_{k+1}=\mathbf{r}_k-\alpha_k\mathbf{A}\mathbf{p}_k\)</span></li>
+<li class="fragment"><span class="math inline">\(\mathbf{r}_k \perp B_k\)</span> (induction) and <span class="math inline">\(\alpha_k\mathbf{A}\mathbf{p}_k \perp B_k\)</span> (conjugacy) <span class="math inline">\(\implies \mathbf{r}_{k+1} \perp B_k\)</span></li>
+<li class="fragment"><span class="math inline">\(\implies \mathbf{r}_{k+1} \perp B_{k+1}\)</span></li>
+</ul>
+</div>
+</section>
+<section id="key-observation-1" class="slide level2">
+<h2>Key Observation</h2>
+<div>
+<ul>
+<li class="fragment">Let <span class="math inline">\(P\)</span> be <span class="math inline">\(\{\mathbf{r}_k\}\)</span>’s Gram-Schimidt orthogonalization: <span class="math inline">\(\mathbf{p}_i = \mathbf{r}_i + \sum_{k=0}^{i-1}\beta_{ik}\mathbf{p}_k\)</span></li>
+<li class="fragment">Rewrite <span class="math inline">\(\mathbf{r}_i = \mathbf{p}_i - \sum_{k=0}^{i-1}\beta_{ik}\mathbf{p}_k\)</span>, also <span class="math inline">\(\mathbf{r_k} \perp B_k\)</span> <span class="math inline">\(\implies \mathbf{r}_i^T\mathbf{r}_j=0\)</span> for <span class="math inline">\(i \neq j\)</span>, <span class="math inline">\(\{\mathbf{r}_k\}\)</span> is othogonal basis</li>
+<li class="fragment"><span class="math inline">\(\beta_{ik} = - \frac{\mathbf{r}_i^T\mathbf{A}\mathbf{p}_k}{\langle \mathbf{p}_k,\mathbf{p}_k\rangle_A}\)</span> also <span class="math inline">\(\mathbf{r}_{k+1}=\mathbf{r}_k-\alpha_k\mathbf{A}\mathbf{p}_k\)</span> <span class="math inline">\(\implies \beta_{ik}=\frac{\mathbf{r}_i^T\mathbf{r}_{k+1}-\mathbf{r}_i^T\mathbf{r}_{k}}{\mathbf{r}_i^T\mathbf{r}_i}\)</span> non-zero when <span class="math inline">\(k=i-1\)</span></li>
+<li class="fragment">Then can be simplified to <span class="math inline">\(\mathbf{p}_k = \mathbf{r}_k-\beta_{k-1}\mathbf{P}_{k-1}\)</span>, where <span class="math display">\[\beta_{k-1} = \frac{\mathbf{r}_k^T\mathbf{r}_k}{\mathbf{r}_{k-1}^T\mathbf{r}_{k-1}}\]</span></li>
+</ul>
+</div>
+</section>
+<section id="conjugate-gradient-algorithm" class="slide level2">
+<h2>Conjugate Gradient Algorithm</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>r <span class="op">=</span> b <span class="op">-</span> A<span class="op">*</span>x</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>p <span class="op">=</span> r</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>p_pre <span class="op">=</span> p</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>r_pre <span class="op">=</span> r</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>k <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="cf">while</span> r.norm() <span class="op">&gt;</span> err <span class="kw">and</span> k <span class="op">&lt;</span> n:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>    alpha <span class="op">=</span> r.dot(r)<span class="op">/</span>(p.transpose()<span class="op">*</span>A<span class="op">*</span>p)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>    x <span class="op">=</span> x <span class="op">+</span> alpha<span class="op">*</span>p_pre</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>    r <span class="op">=</span> r_pre <span class="op">-</span> alpha<span class="op">*</span>A<span class="op">*</span>p_pre</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>    beta <span class="op">=</span> r.dot(r)<span class="op">/</span>r_pre.dot(r_pre)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>    p <span class="op">=</span> r <span class="op">+</span> beta<span class="op">*</span>p_pre</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>    p_pre <span class="op">=</span> p</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>    r_pre <span class="op">=</span> r</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>    k <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
+</section>
+<section id="convergence" class="slide level2">
+<h2>Convergence</h2>
+<ul>
+<li><strong>Theorem</strong>: <span class="math inline">\(\mathbf{e}_i = \mathbf{x}_i-\mathbf{x}^*\)</span>, <span class="math inline">\(\kappa(\mathbf{A})\)</span> is condition number <span class="math inline">\(\lVert \mathbf{A}^{-1} \rVert\cdot \lVert \mathbf{A} \rVert\)</span>, then <span class="math display">\[\lVert\mathbf{e}_k\rVert_\mathbf{A} \leq 2\left( \frac{\sqrt{\kappa(\mathbf{A})}-1}{\sqrt{\kappa(\mathbf{A})}+1} \right)^k \lVert \mathbf{e}_0 \rVert_\mathbf{A}\]</span></li>
+<li>Smaller <span class="math inline">\(\kappa(\mathbf{A})\)</span>, Faster Convergence!</li>
+</ul>
 </section></section>
+<section id="pcg-precondition" class="title-slide slide level1">
+<h1>PCG: +Precondition</h1>
+
+</section>
     </div>
   </div>
 
