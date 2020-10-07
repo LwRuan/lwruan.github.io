@@ -182,5 +182,63 @@ while r.norm() > err and k < n:
 
 # MG: MultiGrid
 
-## Multigrid
+## Jacobi Iteration
 
+::: incremental
+* **Define**: $\mathbf{A} = \mathbf{D} + \mathbf{L} + \mathbf{U}$
+* At every step: $\mathbf{x}_{n+1} = -\mathbf{D}^{-1}(\mathbf{L}+\mathbf{U})\mathbf{x}_n+\mathbf{D}^{-1}\mathbf{b}$
+* Iteration matrix: $\mathbf{T} = -\mathbf{D}^{-1}(\mathbf{L}+\mathbf{U})$
+* **Define**(spectral radius): $\rho(\mathbf{T})=\max \{|\lambda_1|, \cdots, |\lambda_n|\}$
+* **Theorem**: $\lVert \mathbf{e}_k \rVert \leq \rho(\mathbf{T})^k\lVert \mathbf{e}_0 \rVert$, usually we have $\rho(\mathbf{T}) = 1-O(\frac{1}{n^2})$, slow convergence when large $n$
+
+:::
+
+## A Simple Case
+
+::: incremental
+* **Problem**: $\frac{d^2 u}{dx^2}=0$, $u(0)=0$, $u(1)=0$
+* Analytical solution: $u=0$
+* Discretize $[0,1]$ into $N$ elements $\implies \mathbf{A}\mathbf{u}=\mathbf{0}$, where
+$$\mathbf{A}=\begin{pmatrix}
+    2 & -1 & &  \\
+    -1 & 2 & -1 &  \\
+    &  & \ddots & \\
+    & & -1 & 2
+\end{pmatrix}$$
+
+:::
+
+## Try Jacobi
+
+:::: {.columns}
+::: {.column width="60%"}
+
+::: incremental
+* $\mathbf{T}=-\mathbf{D}^{-1}(\mathbf{L}+\mathbf{U})=\mathbf{I}-\frac{1}{2}\mathbf{A}$
+* $\mathbf{A}\mathbf{w}=\lambda\mathbf{w} \implies$ $\mathbf{w}^k=\{0, \frac{k\pi}{N},\cdots, \frac{(N-1)k\pi}{N}\}$, $\lambda^k = 4\sin^2(\frac{k\pi}{2N})$
+* $1-\frac{1}{2}\lambda^k=1-2\sin^2(\frac{k\pi}{2N})$
+* **low** frequency components converge **slower**
+:::
+
+:::
+
+::: {.column width="40%"}
+
+![](/assets/images/w-lambda.png){height="400px"}
+
+:::
+::::
+
+## Key Observation
+
+::: incremental
+* low frequencies on find grid become high frequency on coarser grid
+* coarse grid result can be good initial guess for finer grid
+* nested iteration:
+  * solve exact solution on coarse grid ($\Omega^{2h}$)
+  * **Prolongation**: relax solution onto finer grid ($\Omega^h$)
+* Smooth components on coarsest grid can still lead to inaccurate solution because coarest grid is not a good approximation
+
+:::
+
+## 

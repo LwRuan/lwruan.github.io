@@ -285,6 +285,70 @@
 </ul>
 </div>
 </section></section>
+<section>
+<section id="mg-multigrid" class="title-slide slide level1">
+<h1>MG: MultiGrid</h1>
+
+</section>
+<section id="jacobi-iteration" class="slide level2">
+<h2>Jacobi Iteration</h2>
+<div>
+<ul>
+<li class="fragment"><strong>Define</strong>: <span class="math inline">\(\mathbf{A} = \mathbf{D} + \mathbf{L} + \mathbf{U}\)</span></li>
+<li class="fragment">At every step: <span class="math inline">\(\mathbf{x}_{n+1} = -\mathbf{D}^{-1}(\mathbf{L}+\mathbf{U})\mathbf{x}_n+\mathbf{D}^{-1}\mathbf{b}\)</span></li>
+<li class="fragment">Iteration matrix: <span class="math inline">\(\mathbf{T} = -\mathbf{D}^{-1}(\mathbf{L}+\mathbf{U})\)</span></li>
+<li class="fragment"><strong>Define</strong>(spectral radius): <span class="math inline">\(\rho(\mathbf{T})=\max \{|\lambda_1|, \cdots, |\lambda_n|\}\)</span></li>
+<li class="fragment"><strong>Theorem</strong>: <span class="math inline">\(\lVert \mathbf{e}_k \rVert \leq \rho(\mathbf{T})^k\lVert \mathbf{e}_0 \rVert\)</span>, usually we have <span class="math inline">\(\rho(\mathbf{T}) = 1-O(\frac{1}{n^2})\)</span>, slow convergence when large <span class="math inline">\(n\)</span></li>
+</ul>
+</div>
+</section>
+<section id="a-simple-case" class="slide level2">
+<h2>A Simple Case</h2>
+<div>
+<ul>
+<li class="fragment"><strong>Problem</strong>: <span class="math inline">\(\frac{d^2 u}{dx^2}=0\)</span>, <span class="math inline">\(u(0)=0\)</span>, <span class="math inline">\(u(1)=0\)</span></li>
+<li class="fragment">Analytical solution: <span class="math inline">\(u=0\)</span></li>
+<li class="fragment">Discretize <span class="math inline">\([0,1]\)</span> into <span class="math inline">\(N\)</span> elements <span class="math inline">\(\implies \mathbf{A}\mathbf{u}=\mathbf{0}\)</span>, where <span class="math display">\[\mathbf{A}=\begin{pmatrix}
+  2 &amp; -1 &amp; &amp;  \\
+  -1 &amp; 2 &amp; -1 &amp;  \\
+  &amp;  &amp; \ddots &amp; \\
+  &amp; &amp; -1 &amp; 2
+\end{pmatrix}\]</span></li>
+</ul>
+</div>
+</section>
+<section id="try-jacobi" class="slide level2">
+<h2>Try Jacobi</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div>
+<ul>
+<li class="fragment"><span class="math inline">\(\mathbf{T}=-\mathbf{D}^{-1}(\mathbf{L}+\mathbf{U})=\mathbf{I}-\frac{1}{2}\mathbf{A}\)</span></li>
+<li class="fragment"><span class="math inline">\(\mathbf{A}\mathbf{w}=\lambda\mathbf{w} \implies\)</span> <span class="math inline">\(\mathbf{w}^k=\{0, \frac{k\pi}{N},\cdots, \frac{(N-1)k\pi}{N}\}\)</span>, <span class="math inline">\(\lambda^k = 4\sin^2(\frac{k\pi}{2N})\)</span></li>
+<li class="fragment"><span class="math inline">\(1-\frac{1}{2}\lambda^k=1-2\sin^2(\frac{k\pi}{2N})\)</span></li>
+<li class="fragment"><strong>low</strong> frequency components converge <strong>slower</strong></li>
+</ul>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="/assets/images/w-lambda.png" height="400" /></p>
+</div>
+</div>
+</section>
+<section id="key-observation-2" class="slide level2">
+<h2>Key Observation</h2>
+<div>
+<ul>
+<li class="fragment">low frequencies on find grid become high frequency on coarser grid</li>
+<li class="fragment">coarse grid result can be good initial guess for finer grid</li>
+<li class="fragment">nested iteration:
+<ul>
+<li class="fragment">solve exact solution on coarsest grid (<span class="math inline">\(\Omega^{2h}\)</span>)</li>
+<li class="fragment"><strong>Prolongation</strong>: relax solution onto finer grid(<span class="math inline">\(\Omega^h\)</span>)</li>
+</ul></li>
+<li class="fragment">Smooth components on coarsest grid can still lead to inaccurate solution because coarest grid is not a good approximation</li>
+</ul>
+</div>
+</section></section>
     </div>
   </div>
 
