@@ -290,8 +290,8 @@
 <h1>MG: MultiGrid</h1>
 
 </section>
-<section id="jacobi-iteration" class="slide level2">
-<h2>Jacobi Iteration</h2>
+<section id="jacobi-iteration-relaxation" class="slide level2">
+<h2>Jacobi Iteration (Relaxation)</h2>
 <div>
 <ul>
 <li class="fragment"><strong>Define</strong>: <span class="math inline">\(\mathbf{A} = \mathbf{D} + \mathbf{L} + \mathbf{U}\)</span></li>
@@ -338,17 +338,129 @@
 <h2>Key Observation</h2>
 <div>
 <ul>
-<li class="fragment">low frequencies on find grid become high frequency on coarser grid</li>
-<li class="fragment">coarse grid result can be good initial guess for finer grid</li>
-<li class="fragment">nested iteration:
+<li class="fragment">Coarse grid can be used to compute an improved initial guess for the fine grid</li>
+<li class="fragment">Relaxation on coarse grid is much faster</li>
+<li class="fragment">Iteration:
 <ul>
-<li class="fragment">solve exact solution on coarsest grid (<span class="math inline">\(\Omega^{2h}\)</span>)</li>
-<li class="fragment"><strong>Prolongation</strong>: relax solution onto finer grid(<span class="math inline">\(\Omega^h\)</span>)</li>
+<li class="fragment">relax on <span class="math inline">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> on coarser grid (<span class="math inline">\(\Omega^{2h}\)</span>)</li>
+<li class="fragment"><strong>Prolongation</strong>: interpolation solution onto finer grid (<span class="math inline">\(\Omega^h\)</span>) as initial guess</li>
+<li class="fragment">relax on <span class="math inline">\(\Omega^h\)</span></li>
 </ul></li>
-<li class="fragment">Smooth components on coarsest grid can still lead to inaccurate solution because coarest grid is not a good approximation</li>
+<li class="fragment">What if the error still has smooth components when we get to the fine grid?</li>
+</ul>
+</div>
+</section>
+<section id="key-observation-3" class="slide level2">
+<h2>Key Observation</h2>
+<div>
+<ul>
+<li class="fragment">After relaxation on <span class="math inline">\(\Omega^h\)</span> the error is smooth, more oscillatory on coarser grid</li>
+<li class="fragment">For any vector <span class="math inline">\(\mathbf{x}\)</span>, error <span class="math inline">\(\mathbf{e}=\mathbf{x}^*-\mathbf{x}\)</span> satisfies <span class="math inline">\(\mathbf{A}\mathbf{e}=\mathbf{r}\)</span>, where <span class="math inline">\(\mathbf{r}=\mathbf{b}-\mathbf{A}\mathbf{x}\)</span></li>
+<li class="fragment">Error Correction
+<ul>
+<li class="fragment"><strong>Restriction</strong>: restrict the residual from <span class="math inline">\(\Omega^h\)</span> to <span class="math inline">\(\Omega^{2h}\)</span></li>
+<li class="fragment">Relaxation <span class="math inline">\(\mathbf{A}\mathbf{e}=\mathbf{r}\)</span> on <span class="math inline">\(\Omega^{2h}\)</span> to get <span class="math inline">\(\mathbf{e}^{2h}\)</span></li>
+<li class="fragment">Interpolation back to <span class="math inline">\(\Omega^{h}\)</span> and add it to <span class="math inline">\(\mathbf{x}^h\)</span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="two-grid-scheme" class="slide level2">
+<h2>Two-grid scheme</h2>
+<div>
+<ul>
+<li class="fragment">Relax <span class="math inline">\(\mathbf{A}^h\mathbf{x}^h=\mathbf{b}^h\)</span> on <span class="math inline">\(\Omega^h\)</span> to get <span class="math inline">\(\mathbf{x}^h\)</span></li>
+<li class="fragment">Compute residual: <span class="math inline">\(\mathbf{r}^h = \mathbf{b}^h-\mathbf{A}^h\mathbf{x}^h\)</span></li>
+<li class="fragment">Restrict the residual to <span class="math inline">\(\Omega^{2h}\)</span>: <span class="math inline">\(\mathbf{r}^{2h}=\mathbf{I}_{h}^{2h}\mathbf{r}^h\)</span></li>
+<li class="fragment">Solve <span class="math inline">\(\mathbf{A}^{2h}\mathbf{e}^{2h}=\mathbf{r}^{2h}\)</span> on <span class="math inline">\(\Omega^{2h}\)</span></li>
+<li class="fragment">Prolong the error to <span class="math inline">\(\Omega^h\)</span>: <span class="math inline">\(\mathbf{e}^h=\mathbf{I}_{2h}^h\mathbf{e}^{2h}\)</span></li>
+<li class="fragment">Correct solution: <span class="math inline">\(\mathbf{x}^h \gets \mathbf{x}^h+\mathbf{e}^h\)</span></li>
+<li class="fragment">Relax on <span class="math inline">\(\Omega^h\)</span> again using <span class="math inline">\(\mathbf{x}^h\)</span> as initial guess</li>
+</ul>
+</div>
+</section>
+<section id="v-cycle-algorithm" class="slide level2">
+<h2>V-Cycle Algorithm</h2>
+<p><img data-src="/assets/images/multigrid.png" height="400" /></p>
+</section>
+<section id="different-types" class="slide level2">
+<h2>Different Types</h2>
+<p><img data-src="/assets/images/MultigridWork.svg" style="width:100.0%" /></p>
+</section>
+<section id="mg-as-preconditioner" class="slide level2">
+<h2>MG as Preconditioner</h2>
+<div>
+<ul>
+<li class="fragment">Begin with zero initial guess at <span class="math inline">\(\Omega^h\)</span> <span class="math inline">\(\implies\)</span> procedure is linear operation</li>
+<li class="fragment">To insure SPD, sufficient conditions are:
+<ul>
+<li class="fragment">restriction/prolongation operations are transpose of one another</li>
+<li class="fragment">smoother used in upstroke and downstroke should be in reverse order</li>
+<li class="fragment">the solve at coarsest level should be exact or SPD insured iteration method</li>
+</ul></li>
 </ul>
 </div>
 </section></section>
+<section>
+<section id="mgpcg-for-fluid" class="title-slide slide level1">
+<h1>MGPCG for Fluid</h1>
+
+</section>
+<section id="background" class="slide level2">
+<h2>Background</h2>
+<ul>
+<li><strong>Problem</strong>: <span class="math inline">\(\nabla^2p=f\)</span> in <span class="math inline">\(\Omega\)</span>, <span class="math inline">\(p(\mathbf{x})=\alpha(\mathbf{x})\)</span> on <span class="math inline">\(\Gamma_D\)</span>, <span class="math inline">\(p_n(\mathbf{x})=\beta(\mathbf{x})\)</span> on <span class="math inline">\(\Gamma_N\)</span></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><strong>Discretization</strong>: <span class="math inline">\(\frac{1}{h^2}\sum_{(i&#39;,j&#39;,k&#39;)\in N^*_{ijk}}p_{i&#39;j&#39;k&#39;}-p_{ijk}=f_{ijk}\)</span>, where <span class="math inline">\(N^*_{ijk}=\{(i&#39;,j&#39;,k&#39;) \in N_{ijk}: cell (i&#39;,j&#39;,k&#39;) \notin \Gamma_N\}\)</span></li>
+</ul>
+<p><img data-src="/assets/images/mgpcg-discretization.png" style="width:100.0%" /></p>
+</div>
+</section>
+<section id="prolongationrestriction" class="slide level2">
+<h2>Prolongation/Restriction</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><span class="math inline">\(R=B\otimes B\otimes B\)</span></li>
+<li><span class="math inline">\(P^T=8B\otimes B\otimes B\)</span></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="/assets/images/mgpcg-restriction.png" /></p>
+</div>
+</div>
+</section>
+<section id="smooth" class="slide level2">
+<h2>Smooth</h2>
+<ul>
+<li>No explicit matrix stored</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co"># the same as Stable Fluids!</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="at">@ti.kernel</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="kw">def</span> smooth(l: ti.template(), phase: ti.template()):</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="co"># phase = red/black Gauss-Seidel phase</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>  <span class="cf">for</span> i, j, k <span class="kw">in</span> r[l]:</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    <span class="cf">if</span> (i <span class="op">+</span> j <span class="op">+</span> k) <span class="op">&amp;</span> <span class="dv">1</span> <span class="op">==</span> phase:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>      z[l][i,j,k] <span class="op">=</span> (r[l][i,j,k]<span class="op">+</span>z[l][i<span class="op">+</span><span class="dv">1</span>,j,k]<span class="op">+</span>z[l][i<span class="op">-</span><span class="dv">1</span>,j,k] <span class="op">\</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>        <span class="op">+</span>z[l][i,j<span class="op">+</span><span class="dv">1</span>,k]<span class="op">+</span>z[l][i,j<span class="op">-</span><span class="dv">1</span>,k] <span class="op">\</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>        <span class="op">+</span>z[l][i,j,k<span class="op">+</span><span class="dv">1</span>]<span class="op">+</span>z[l][i,j,k<span class="op">-</span><span class="dv">1</span>])<span class="op">/</span><span class="fl">6.0</span></span></code></pre></div>
+</section>
+<section id="boundary" class="slide level2">
+<h2>Boundary</h2>
+<ul>
+<li>Only prolongate/restrict into interior cells</li>
+<li>Extra smoothing on boundary band cells</li>
+</ul>
+</section></section>
+<section id="reference" class="title-slide slide level1">
+<h1>Reference</h1>
+<ul>
+<li>Jonathan Richard Shewchuk, <a href="https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf">An Introduction to the Conjugate Gradient Method Without the Agonizing Pain</a></li>
+<li>William L. Briggs, <a href="https://www.math.ust.hk/~mawang/teaching/math532/mgtut.pdf">A Multigrid Tutorial</a></li>
+<li>A. McAdams, E. Sifakis, and J. Teran. 2010. <a href="http://pages.cs.wisc.edu/~sifakis/papers/mgpcg_poisson.pdf">A parallel multigrid Poisson solver for fluids simulation on large grids</a>. In Proceedings of the 2010 ACM SIGGRAPH/Eurographics Symposium on Computer Animation (SCA ’10). Eurographics Association, Goslar, DEU, 65–74.</li>
+</ul>
+</section>
     </div>
   </div>
 

@@ -182,7 +182,7 @@ while r.norm() > err and k < n:
 
 # MG: MultiGrid
 
-## Jacobi Iteration
+## Jacobi Iteration (Relaxation)
 
 ::: incremental
 * **Define**: $\mathbf{A} = \mathbf{D} + \mathbf{L} + \mathbf{U}$
@@ -232,13 +232,107 @@ $$\mathbf{A}=\begin{pmatrix}
 ## Key Observation
 
 ::: incremental
-* low frequencies on find grid become high frequency on coarser grid
-* coarse grid result can be good initial guess for finer grid
-* nested iteration:
-  * solve exact solution on coarse grid ($\Omega^{2h}$)
-  * **Prolongation**: relax solution onto finer grid ($\Omega^h$)
-* Smooth components on coarsest grid can still lead to inaccurate solution because coarest grid is not a good approximation
+* Coarse grid can be used to compute an improved initial guess for the fine grid
+* Relaxation on coarse grid is much faster
+* Iteration:
+  * relax on $\mathbf{A}\mathbf{x}=\mathbf{b}$ on coarser grid ($\Omega^{2h}$)
+  * **Prolongation**: interpolation solution onto finer grid ($\Omega^h$) as initial guess
+  * relax on $\Omega^h$
+* What if the error still has smooth components when we get to the fine grid?
 
 :::
 
-## 
+## Key Observation
+
+::: incremental
+* After relaxation on $\Omega^h$ the error is smooth, more oscillatory on coarser grid
+* For any vector $\mathbf{x}$, error $\mathbf{e}=\mathbf{x}^*-\mathbf{x}$ satisfies $\mathbf{A}\mathbf{e}=\mathbf{r}$, where $\mathbf{r}=\mathbf{b}-\mathbf{A}\mathbf{x}$ 
+* Error Correction
+  * **Restriction**: restrict the residual from $\Omega^h$ to $\Omega^{2h}$
+  * Relaxation $\mathbf{A}\mathbf{e}=\mathbf{r}$ on $\Omega^{2h}$ to get $\mathbf{e}^{2h}$
+  * Interpolation back to $\Omega^{h}$ and add it to $\mathbf{x}^h$
+
+:::
+
+## Two-grid scheme
+
+::: incremental
+* Relax $\mathbf{A}^h\mathbf{x}^h=\mathbf{b}^h$ on $\Omega^h$ to get $\mathbf{x}^h$ 
+* Compute residual: $\mathbf{r}^h = \mathbf{b}^h-\mathbf{A}^h\mathbf{x}^h$
+* Restrict the residual to $\Omega^{2h}$: $\mathbf{r}^{2h}=\mathbf{I}_{h}^{2h}\mathbf{r}^h$
+* Solve $\mathbf{A}^{2h}\mathbf{e}^{2h}=\mathbf{r}^{2h}$ on $\Omega^{2h}$
+* Prolong the error to $\Omega^h$: $\mathbf{e}^h=\mathbf{I}_{2h}^h\mathbf{e}^{2h}$
+* Correct solution: $\mathbf{x}^h \gets \mathbf{x}^h+\mathbf{e}^h$
+* Relax on $\Omega^h$ again using $\mathbf{x}^h$ as initial guess
+:::
+
+## V-Cycle Algorithm
+
+![](/assets/images/multigrid.png){height="400px"}
+
+## Different Types
+
+![](/assets/images/MultigridWork.svg){width="100%"}
+
+## MG as Preconditioner
+
+::: incremental
+* Begin with zero initial guess at $\Omega^h$ $\implies$ procedure is linear operation
+* To insure SPD, sufficient conditions are:
+  * restriction/prolongation operations are transpose of one another
+  * smoother used in upstroke and downstroke should be in reverse order
+  * the solve at coarsest level should be exact or SPD insured iteration method
+
+:::
+
+# MGPCG for Fluid
+
+## Background
+
+* **Problem**: $\nabla^2p=f$ in $\Omega$, $p(\mathbf{x})=\alpha(\mathbf{x})$ on $\Gamma_D$, $p_n(\mathbf{x})=\beta(\mathbf{x})$ on $\Gamma_N$
+
+. . .
+
+* **Discretization**: $\frac{1}{h^2}\sum_{(i',j',k')\in N^*_{ijk}}p_{i'j'k'}-p_{ijk}=f_{ijk}$, where $N^*_{ijk}=\{(i',j',k') \in N_{ijk}: cell (i',j',k') \notin \Gamma_N\}$
+
+![](/assets/images/mgpcg-discretization.png){width="100%"}
+
+## Prolongation/Restriction
+
+:::: {.columns}
+::: {.column width="60%"}
+* $R=B\otimes B\otimes B$
+* $P^T=8B\otimes B\otimes B$
+:::
+
+::: {.column width="40%"}
+![](/assets/images/mgpcg-restriction.png)
+:::
+::::
+
+## Smooth
+
+* No explicit matrix stored
+
+```python
+# the same as Stable Fluids!
+@ti.kernel
+def smooth(l: ti.template(), phase: ti.template()):
+# phase = red/black Gauss-Seidel phase
+  for i, j, k in r[l]:
+    if (i + j + k) & 1 == phase:
+      z[l][i,j,k] = (r[l][i,j,k]+z[l][i+1,j,k]+z[l][i-1,j,k] \
+        +z[l][i,j+1,k]+z[l][i,j-1,k] \
+        +z[l][i,j,k+1]+z[l][i,j,k-1])/6.0
+```
+
+## Boundary
+
+* Only prolongate/restrict into interior cells
+* Extra smoothing on boundary band cells
+
+# Reference
+
+* Jonathan Richard Shewchuk, [An Introduction to the Conjugate Gradient Method Without the Agonizing Pain](https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf)
+* William L. Briggs, [A Multigrid Tutorial](https://www.math.ust.hk/~mawang/teaching/math532/mgtut.pdf)
+* A. McAdams, E. Sifakis, and J. Teran. 2010. [A parallel multigrid Poisson solver for fluids simulation on large grids](http://pages.cs.wisc.edu/~sifakis/papers/mgpcg_poisson.pdf). In Proceedings of the 2010 ACM SIGGRAPH/Eurographics Symposium on Computer Animation (SCA '10). Eurographics Association, Goslar, DEU, 65–74.
