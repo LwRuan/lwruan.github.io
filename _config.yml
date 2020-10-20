@@ -119,7 +119,7 @@ author:
       # url: "https://instagram.com/"
     - label: "Zhihu"
       icon: "fab fa-fw fa-zhihu"
-      url: "https://www.zhihu.com/people/ruan-liang-wang-22"
+      url: "https://www.zhihu.com/people/lwruan"
 
 # Site Footer
 footer:
@@ -144,7 +144,7 @@ footer:
       # url:
     - label: "Zhihu"
       icon: "fab fa-fw fa-zhihu"
-      url: "https://www.zhihu.com/people/ruan-liang-wang-22"
+      url: "https://www.zhihu.com/people/lwruan"
 
 
 # Reading Files
