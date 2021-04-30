@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Lwruan # Website name
-baseurl: 'www.lwruan.com' # Website URL
+baseurl: '' # Website URL
 copyright: '' # Footer text, e.g. '© {year} Me'
 
 ############################
