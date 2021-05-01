@@ -1,9 +1,9 @@
 ---
 title: Migration to Hugo
-subtitle: Build a website using [Hugo Academic](https://wowchemy.com)
+subtitle: Build a website using Hugo Academic
 
 # Summary for listings and search engines
-summary: Build a website using [Hugo Academic](https://wowchemy.com)
+summary: Build a website using Hugo Academic
 
 # Link this post with a project
 projects: []
