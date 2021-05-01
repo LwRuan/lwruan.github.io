@@ -9,7 +9,39 @@ Click on the &lt;strong>Slides&lt;/strong> button above to view the built-in sli
 &lt;li>&lt;strong>Upload&lt;/strong> an existing slide deck to &lt;code>static/&lt;/code> and link using &lt;code>url_slides&lt;/code> parameter in the front matter of the talk file&lt;/li>
 &lt;li>&lt;strong>Embed&lt;/strong> your slides (e.g. Google Slides) or presentation video on this page using &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">shortcodes&lt;/a>.&lt;/li>
 &lt;/ul>
-&lt;p>Further event details, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">page elements&lt;/a> such as image galleries, can be added to the body of this page.&lt;/p></description></item><item><title>Blog Setup Day3</title><link>/post/blog-setup-day3/</link><pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate><guid>/post/blog-setup-day3/</guid><description>&lt;h2 id="revealjs">Reveal.js&lt;/h2>
+&lt;p>Further event details, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">page elements&lt;/a> such as image galleries, can be added to the body of this page.&lt;/p></description></item><item><title>Migration to Hugo</title><link>/post/migration-to-hugo/</link><pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate><guid>/post/migration-to-hugo/</guid><description>&lt;h2 id="why-hugo">Why Hugo?&lt;/h2>
+&lt;p>The main reason I switch to Hugo is that I find many researchers use &lt;a href="https://wowchemy.com" target="_blank" rel="noopener">Hugo Academic&lt;/a>(now named as Wowchemy) to build their website rather than Jekyll. After finishing the migration to Hugo, I understand why. Essentially Hugo and Jekyll are both static content generators, but Hugo Academic has more good built-in features like publication pages, project pages, and presentation pages. The configuration for Hugo is also much easier since I don&amp;rsquo;t have to deal with those extensions. Although Hugo might not be as flexible as Jekyll, it can cover most of my demands without great effort.&lt;/p>
+&lt;h2 id="set-up">Set Up&lt;/h2>
+&lt;p>Hugo Academic does not work like other Hugo themes, so Hugo&amp;rsquo;s tutorial is not adequate. Wowchemy offers a tutorial on its website, but it&amp;rsquo;s based on its online platform using Netlify. To keep things simple, the best way to build a website is to directly clone their Github repository &lt;a href="https://github.com/wowchemy/starter-academic" target="_blank" rel="noopener">starter-academic&lt;/a> and put it in your &lt;code>&amp;lt;user-name&amp;gt;.github.io&lt;/code> repository. To preview the website, go to the repository&amp;rsquo;s folder and run &lt;code>hugo server&lt;/code>. Running &lt;code>hugo&lt;/code> can generate the website under the &lt;code>public&lt;/code> folder, this behavior can be changed using &lt;code>--publishDir&lt;/code>.&lt;/p>
+&lt;p>I use a &lt;a href="https://github.com/features/actions" target="_blank" rel="noopener">Github Action&lt;/a> to publish my website following the instruction from &lt;a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/" target="_blank" rel="noopener">Hugo Tutorial&lt;/a>. Whenever I commit to &lt;code>master&lt;/code> branch, the action can be automatically triggered, running commands to publish the website to &lt;code>gh-pages&lt;/code> branch. The action&amp;rsquo;s configuration file is in &lt;code>.github/workflows/gh-pages.yml&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="language-yml">name: github pages
+on:
+push:
+branches:
+- master # Set a branch to deploy
+jobs:
+deploy:
+runs-on: ubuntu-18.04
+steps:
+- uses: actions/checkout@v2
+with:
+submodules: true # Fetch Hugo themes (true OR recursive)
+fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+- name: Setup Hugo
+uses: peaceiris/actions-hugo@v2
+with:
+hugo-version: '0.82.1'
+extended: true
+- name: Build
+run: hugo --minify
+- name: Deploy
+uses: peaceiris/actions-gh-pages@v3
+with:
+github_token: ${{ secrets.GITHUB_TOKEN }}
+publish_branch: gh-pages
+cname: lwruan.com
+&lt;/code>&lt;/pre>
+&lt;p>This workflow use &lt;a href="https://github.com/peaceiris/actions-hugo" target="_blank" rel="noopener">actions-hugo&lt;/a> and &lt;a href="https://github.com/peaceiris/actions-gh-pages" target="_blank" rel="noopener">actions-gh-pages&lt;/a> from &lt;a href="https://github.com/peaceiris" target="_blank" rel="noopener">Shohei Ueda&lt;/a>, it does nothing more than using Hugo to generate the website, push the files to &lt;code>gh-pages&lt;/code> branch, and add &lt;code>CNAME&lt;/code> file in the directory. This process only takes few seconds, after that the files in &lt;code>gh-pages&lt;/code> branch are updated. The last thing is to tell Github to find the &lt;code>index.html&lt;/code> in &lt;code>gh-pages&lt;/code> branch, this can be done in repository&amp;rsquo;s settings.&lt;/p></description></item><item><title>Blog Setup Day3</title><link>/post/blog-setup-day3/</link><pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate><guid>/post/blog-setup-day3/</guid><description>&lt;h2 id="revealjs">Reveal.js&lt;/h2>
 &lt;p>&lt;a href="https://revealjs.com/" target="_blank" rel="noopener">Reveal.js&lt;/a> is a powerful tool to build slides on web using &lt;code>HTML&lt;/code> or &lt;code>Markdown&lt;/code>. To use it locally is very easy, just download the source code on github and open &lt;code>demo.html&lt;/code> you can see the result in your browser. Using it on web page is almost the same, put &lt;code>reveal.js&lt;/code> in &lt;code>/assets/reveal.js&lt;/code> and modify the path in &lt;code>demo.html&lt;/code> to the folder in &lt;code>assets&lt;/code>, then everything works.&lt;br>
 &lt;code>Reveal.js&lt;/code> has natural support of &lt;a href="https://revealjs.com/markdown/" target="_blank" rel="noopener">&lt;code>Markdown&lt;/code>&lt;/a>, which makes it possible for us to integrate it into our &lt;code>jekyll&lt;/code> based web page.&lt;/p>
 &lt;h2 id="online-solutions">Online Solutions&lt;/h2>
