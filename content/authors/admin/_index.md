@@ -59,4 +59,4 @@ highlight_name: false
 #{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
 ---
 
-Liangwang Ruan is a senior student from [Turing Class](http://cfcs.pku.edu.cn/research/turing_program/introduction1/index.htm), Peking University, currently advised by [Prof. Baoquan Chen](http://cfcs.pku.edu.cn/baoquan/) at [Center on Frontiers of Computing Studies (CFCS)](http://vcl.pku.edu.cn/index.html) and [Dr. Bin Wang](https://binwangbfa.github.io) from [Advanced Innovation Center for Future Visual Entertainment (AICFVE)](http://fve.bfa.edu.cn/).
+Liangwang Ruan(阮良旺) is a senior student from [Turing Class](http://cfcs.pku.edu.cn/research/turing_program/introduction1/index.htm), Peking University, currently advised by [Prof. Baoquan Chen](http://cfcs.pku.edu.cn/baoquan/) at [Center on Frontiers of Computing Studies (CFCS)](http://vcl.pku.edu.cn/index.html) and [Dr. Bin Wang](https://binwangbfa.github.io) from [Advanced Innovation Center for Future Visual Entertainment (AICFVE)](http://fve.bfa.edu.cn/).
