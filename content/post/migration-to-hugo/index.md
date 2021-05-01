@@ -80,4 +80,4 @@ jobs:
           publish_branch: gh-pages
           cname: lwruan.com
 ```
-This workflow use [actions-hugo](https://github.com/peaceiris/actions-hugo) and [actions-gh-pages](https://github.com/peaceiris/actions-gh-pages) from [Shohei Ueda](https://github.com/peaceiris), it does nothing more than using Hugo to generate the website, push the files to `gh-pages` branch, and add `CNAME` file in the directory. This process only takes few seconds, after that the files in `gh-pages` branch are updated. The last thing is to tell Github to find the `index.html` in `gh-pages` branch, this can be done in repository's settings.
+This workflow use [actions-hugo](https://github.com/peaceiris/actions-hugo) and [actions-gh-pages](https://github.com/peaceiris/actions-gh-pages) from [Shohei Ueda](https://github.com/peaceiris), it does nothing more than using Hugo to generate the website, pushing the files to `gh-pages` branch, and adding `CNAME` file in the directory. This process only takes few seconds, after that the files in `gh-pages` branch are updated. The last thing is to tell Github to find the `index.html` in `gh-pages` branch, this can be done in repository's settings.
