@@ -6,7 +6,7 @@ title: Liangwang Ruan
 superuser: true
 
 # Role/position/tagline
-role: Undergraduate Student
+role: Ph.D Student
 
 # Organizations/Affiliations to show in About widget
 organizations:
@@ -14,7 +14,7 @@ organizations:
   url: https://english.pku.edu.cn/
 
 # Short bio (displayed in user profile at end of posts)
-bio: I'm a senior student from [Turing Class](http://cfcs.pku.edu.cn/research/turing_program/introduction1/index.htm), Peking University.
+bio: I'm a Ph.D student from Peking University advised by Baoquan Chen.
 
 # Interests to show in About widget
 interests:
@@ -24,9 +24,12 @@ interests:
 # Education to show in About widget
 education:
   courses:
-  - course: Undergraduate Student in Artificial Intelligence
+  - course: Ph.D student in Computer Science
     institution: Peking University
-    year: from 2017
+    year: from 2021
+  - course: B.S. in Artificial Intelligence
+    institution: Peking University
+    year: 2021
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
@@ -59,4 +62,4 @@ highlight_name: true
 #{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
 ---
 
-Liangwang Ruan(阮良旺) is a senior student from [Turing Class](http://cfcs.pku.edu.cn/research/turing_program/introduction1/index.htm), Peking University, currently advised by [Prof. Baoquan Chen](http://cfcs.pku.edu.cn/baoquan/) at [Center on Frontiers of Computing Studies (CFCS)](http://vcl.pku.edu.cn/index.html) and [Dr. Bin Wang](https://binwangbfa.github.io) from [Advanced Innovation Center for Future Visual Entertainment (AICFVE)](http://fve.bfa.edu.cn/).
+Liangwang Ruan(阮良旺) is a Ph.D student from [Center on Frontiers of Computing Studies (CFCS)](http://cfcs.pku.edu.cn), Peking University, advised by [Prof. Baoquan Chen](http://cfcs.pku.edu.cn/baoquan/).
