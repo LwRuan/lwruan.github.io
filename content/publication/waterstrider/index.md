@@ -60,9 +60,9 @@ tags: [Simulation]
 featured: false
 
 # Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: http://example.org
+links:
+ - name: Video
+   url: https://www.youtube.com/watch?v=3ejKNbtdfnY
 
 url_pdf: ''
 url_code: ''
@@ -71,7 +71,7 @@ url_poster: ''
 url_project: ''
 url_slides: ''
 url_source: ''
-url_video: {{< youtube 3ejKNbtdfnY >}}
+#url_video: https://www.youtube.com/watch?v=3ejKNbtdfnY
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
