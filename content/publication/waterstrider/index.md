@@ -71,7 +71,7 @@ url_poster: ''
 url_project: ''
 url_slides: ''
 url_source: ''
-url_video: "www.youtube.com/watch?v=3ejKNbtdfnY"
+url_video: https://youtube.com/watch?v=3ejKNbtdfnY
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
