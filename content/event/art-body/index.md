@@ -35,12 +35,14 @@ featured: false
 #  focal_point: Right
 
 links:
+ - name: PDF-zh
+   url: "art-rigid.pdf"
 #- icon: twitter
 #  icon_pack: fab
 #  name: Follow
 #  url: https://twitter.com/georgecushen
-#url_code: ""
-#url_pdf: ""
+url_code: "max-rigids.py"
+# url_pdf: "art-rigid.pdf"
 url_slides: "/slidev/artbody"
 #rl_video: ""
 
