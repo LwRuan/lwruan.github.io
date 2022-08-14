@@ -12,7 +12,32 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div>
+  <div class="max-w-300 mx-auto">
+    <!-- intro -->
+    <div class="flex flex-col md:flex-row place-content-center">
+      <img src="avatar.jpg" class="w-56 h-56 rounded-lg mx-auto my-auto md:mx-0 md:mr-4">
+      <div class="flex-grow p-4 mt-4 md:mt-0 text-left">
+        <div class="text-4xl text-center pb-5 md:text-left">
+          {{t('author.name')}}
+        </div>
+        <div class="text-xl">
+          {{t('author.intro1')}}
+          <a href="http://cfcs.pku.edu.cn/baoquan/" class="underline">{{t('author.adviser')}}</a>
+          {{t('author.intro2')}}
+        </div>
+      </div>
+    </div>
+
+    <!-- pubs -->
+    <div class="pt-10 flex flex-col place-content-center">
+      <div>
+
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- <div>
     <div text-4xl>
       <div i-carbon-campsite inline-block />
     </div>
@@ -53,7 +78,7 @@ const { t } = useI18n()
         {{ t('button.go') }}
       </button>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <route lang="yaml">

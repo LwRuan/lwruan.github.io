@@ -5,6 +5,11 @@ button:
   home: Home
   toggle_dark: Toggle dark mode
   toggle_langs: Change languages
+author:
+  name: Liangwang Ruan
+  intro1: I'm currently a second-year Ph.D student from Center on Frontiers of Computing Studies (CFCS), Peking University, advised by 
+  adviser: Prof. Baoquan Chen
+  intro2: . I'm interested in developing new simulation techniques for all kinds of nature phenomena including fluids, solids, clothes and their interactions for games and movies.
 intro:
   desc: Opinionated Vite Starter Template
   dynamic-route: Demo of dynamic route
