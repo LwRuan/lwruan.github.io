@@ -17,15 +17,18 @@ const toggleLocales = () => {
       </RouterLink>
       <!-- right -->
       <div class="pr-2">
+        <RouterLink class="icon-btn mx-2" to="/blogs" :title="t('button.blogs')">
+          <div i-carbon-document/>
+        </RouterLink>
         <button class="icon-btn mx-2 !outline-none" :title="t('button.toggle_dark')" @click="toggleDark()">
-          <div i="carbon-sun dark:carbon-moon" />
+          <div i="carbon-moon dark:carbon-sun" />
         </button>
         <a class="icon-btn mx-2" :title="t('button.toggle_langs')" @click="toggleLocales()">
-        <div i-carbon-language />
-      </a>
-      <a class="icon-btn mx-2" rel="noreferrer" href="https://github.com/lwruan" target="_blank" title="GitHub">
-        <div i-carbon-logo-github />
-      </a>
+          <div i-carbon-language />
+        </a>
+        <a class="icon-btn mx-2" rel="noreferrer" href="https://github.com/lwruan" target="_blank" title="GitHub">
+          <div i-carbon-logo-github />
+        </a>
       </div>
     </nav>
   </header>
