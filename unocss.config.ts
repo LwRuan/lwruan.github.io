@@ -20,6 +20,9 @@ export default defineConfig({
     presetIcons({
       scale: 1.2,
       warn: true,
+      extraProperties: {
+        'display': 'inline-block',
+      },
     }),
     presetTypography(),
     presetWebFonts({
