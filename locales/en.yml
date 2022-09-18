@@ -6,6 +6,10 @@ button:
   home: Home
   toggle_dark: Toggle dark mode
   toggle_langs: Change languages
+section:
+  pub: Publications
+  news: News
+  contact: Contact
 author:
   name: Liangwang Ruan
   intro1: I'm currently a second-year Ph.D student from Center on Frontiers of Computing Studies (CFCS), Peking University, advised by 

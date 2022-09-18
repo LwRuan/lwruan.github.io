@@ -6,6 +6,10 @@ button:
   home: 首页
   toggle_dark: 切换深色模式
   toggle_langs: 切换语言
+section:
+  pub: 论文
+  news: 最近消息
+  contact: 联系方式
 author:
   name: 阮良旺
   intro1: 我现在是北京大学前沿计算研究中心的二年级的博士研究生，我的导师是
