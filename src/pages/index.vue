@@ -56,7 +56,7 @@ const { t } = useI18n()
       <div class="flex flex-row">
         <div class="w-58 my-auto flex-grow md:flex-grow-0">
           <RouterLink to="/pubs/pbd-st">
-            <img src="/pubs/pbd-st.jpg" alt="" class="w-full rounded-lg">
+            <img src="/pubs/pbd-st-small.gif" alt="" class="w-full rounded-lg">
           </RouterLink>
         </div>
         <div class="pl-4 hidden w-0 md:block md:flex-grow">
