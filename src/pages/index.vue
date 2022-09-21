@@ -93,13 +93,13 @@ const { t } = useI18n()
             , Jinyuan Liu*, Bo Zhu, Shinjiro Sueda, Bin Wang, Baoquan Chen (* for joint first authors), August 2021 In SIGGRAPH
           </div>
           <div class="flex flex-row pt-2">
-            <a href="/pubs-static/waterstrider.pdf" class="text-xl">
+            <a href="/pubs-static/waterstrider.pdf" download class="text-xl">
               <div class="i-carbon-document-pdf text-blue-500"/>
             </a>
             <a href="https://www.youtube.com/watch?v=3ejKNbtdfnY" class="text-xl ml-3 mr-1">
               <div class="i-carbon-logo-youtube text-blue-500"/>
             </a>
-            <a href="/pubs-static/waterstrider-slides.pdf" class="text-xl mx-2">
+            <a href="/pubs-static/waterstrider-slides.pdf" download class="text-xl mx-2">
               <div class="i-uil-presentation text-blue-500"/>
             </a>
           </div>
