@@ -15,7 +15,7 @@ const { t } = useI18n()
   <div class="max-w-300 mx-auto">
     <!-- intro -->
     <div class="flex flex-col md:flex-row place-content-center">
-      <img src="/avatar.jpg" class="w-58 h-58 rounded-lg mx-auto my-auto md:mx-0 md:mr-4">
+      <img src="/avatar-small.jpg" class="w-58 h-58 rounded-lg mx-auto my-auto md:mx-0 md:mr-4">
       <div class="flex-grow p-4 mt-4 md:mt-0 text-left">
         <div class="text-4xl text-center pb-5 md:text-left">
           {{t('author.name')}}

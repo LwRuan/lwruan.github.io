@@ -18,7 +18,7 @@ const { t } = useI18n()
     </div>
     <div class="flex-col mt-10">
       <RouterLink class="text-xl" to="/blogs/2022-08-15-games">
-        2022GAMES研究生学术成长论坛分享 <div i-uil-letter-chinese-a></div>
+        2022GAMES研究生学术成长论坛分享 <div i-uil-letter-chinese-a class="text-blue-500"></div>
       </RouterLink>
     </div>
   </div>
