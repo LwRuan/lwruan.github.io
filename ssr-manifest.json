@@ -37,8 +37,8 @@
   "../../../../../@vite-plugin-vue-layouts/generated-layouts": [],
   "src/App.vue?vue&type=script&setup=true&lang.ts": [],
   "../../../../../avatar.jpg": [],
-  "../../../../../pubs/pbd-st-small.gif": [],
-  "../../../../../pubs/boat_leaf.gif": [],
+  "../../../../../pubs-static/pbd-st-small.gif": [],
+  "../../../../../pubs-static/boat_leaf.gif": [],
   "src/pages/index.vue?vue&type=script&setup=true&lang.ts": [],
   "../../../../../@vite-plugin-pages/route-block": [],
   "src/pages/index.vue": [],
@@ -48,7 +48,7 @@
   "../../../../../__uno.css": [],
   "src/main.ts": [],
   "index.html": [],
-  "assets/app.487983ba.js-unocss-hash.css": [],
+  "assets/app.453d3d2f.js-unocss-hash.css": [],
   "node_modules/.pnpm/workbox-window@6.5.3/node_modules/workbox-window/build/workbox-window.prod.es5.mjs": [
     "/assets/virtual_pwa-register.3ff79d29.js"
   ],
@@ -56,66 +56,63 @@
     "/assets/virtual_pwa-register.3ff79d29.js"
   ],
   "src/layouts/404.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/404.fad6014b.js"
+    "/assets/404.ddcf34f7.js"
   ],
   "src/layouts/404.vue": [
-    "/assets/404.fad6014b.js"
+    "/assets/404.ddcf34f7.js"
   ],
   "src/layouts/home.vue": [
-    "/assets/home.2d9d44c2.js"
+    "/assets/home.ea1d75df.js"
   ],
   "src/pages/README.md": [
-    "/assets/README.9a2ba48a.js"
+    "/assets/README.75c54539.js"
   ],
   "src/pages/[...all].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_...all_.aa8985d6.js"
+    "/assets/_...all_.3de39fd7.js"
   ],
   "src/pages/[...all].vue": [
-    "/assets/_...all_.aa8985d6.js"
+    "/assets/_...all_.3de39fd7.js"
   ],
   "src/pages/about.md": [
-    "/assets/about.dfb20c39.js"
+    "/assets/about.96b7e655.js"
   ],
   "../../../../../talks/emotional-rollercoaster.png": [
-    "/assets/2022-08-15-games.73e5edd6.js"
+    "/assets/2022-08-15-games.017c6100.js"
   ],
   "../../../../../talks/grad-work-output.png": [
-    "/assets/2022-08-15-games.73e5edd6.js"
+    "/assets/2022-08-15-games.017c6100.js"
   ],
   "../../../../../talks/2022-games.jpg": [
-    "/assets/2022-08-15-games.73e5edd6.js"
+    "/assets/2022-08-15-games.017c6100.js"
   ],
   "src/pages/blogs/2022-08-15-games.md": [
-    "/assets/2022-08-15-games.73e5edd6.js"
+    "/assets/2022-08-15-games.017c6100.js"
   ],
   "src/pages/blogs/index.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/index.f585ee66.js"
+    "/assets/index.d599da3f.js"
   ],
   "src/pages/blogs/index.vue": [
-    "/assets/index.f585ee66.js"
+    "/assets/index.d599da3f.js"
   ],
   "src/store/user.ts": [
-    "/assets/_name_.58a502ce.js"
+    "/assets/_name_.e07371e6.js"
   ],
   "src/pages/hi/[name].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_name_.58a502ce.js"
+    "/assets/_name_.e07371e6.js"
   ],
   "src/pages/hi/[name].vue": [
-    "/assets/_name_.58a502ce.js"
+    "/assets/_name_.e07371e6.js"
   ],
   "src/pages/pubs/pbd-st.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/pbd-st.2fb3a666.js"
+    "/assets/pbd-st.4b7e4a9e.js"
   ],
   "src/pages/pubs/pbd-st.vue": [
-    "/assets/pbd-st.2fb3a666.js"
+    "/assets/pbd-st.4b7e4a9e.js"
   ],
-  "../../../../../pubs/3DBoatWater2000013.jpg": [
-    "/assets/waterstrider.666a97ef.js"
-  ],
-  "src/pages/pubs/waterstrider.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/waterstrider.666a97ef.js"
+  "../../../../../pubs-static/3DBoatWater2000013.jpg": [
+    "/assets/waterstrider.47f48c68.js"
   ],
   "src/pages/pubs/waterstrider.vue": [
-    "/assets/waterstrider.666a97ef.js"
+    "/assets/waterstrider.47f48c68.js"
   ]
 }
