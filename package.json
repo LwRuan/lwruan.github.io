@@ -16,6 +16,8 @@
   "dependencies": {
     "@vueuse/core": "^9.0.0",
     "@vueuse/head": "^0.7.7",
+    "katex": "^0.16.2",
+    "markdown-it-texmath": "^1.0.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.17",
     "vue": "^3.2.37",
