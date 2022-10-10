@@ -17,9 +17,6 @@ const { t } = useI18n()
       {{t('button.blogs')}}
     </div>
     <div class="flex flex-col mt-10">
-      <RouterLink class="text-xl" to="/blogs/admm">
-        ADMM总结 <div i-uil-letter-chinese-a class="text-blue-500"></div>
-      </RouterLink>
       <RouterLink class="pt-2 text-xl" to="/blogs/2022-08-15-games">
         2022GAMES研究生学术成长论坛分享 <div i-uil-letter-chinese-a class="text-blue-500"></div>
       </RouterLink>
