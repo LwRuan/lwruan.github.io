@@ -7,7 +7,7 @@ import generatedRoutes from '~pages'
 import '@unocss/reset/tailwind.css'
 import './styles/main.css'
 import 'uno.css'
-import 'katex/dist/katex.min.css'
+// import 'katex/dist/katex.min.css'
 
 const routes = setupLayouts(generatedRoutes)
 

@@ -37,6 +37,10 @@ const { t } = useI18n()
     </div>
     <ul class="pt-10 list-disc pl-10 text-xl">
       <li>
+        Our new paper is demonstrated in the <a href="https://www.youtube.com/watch?v=D6EznsTblj8" class="underline">Technical Papers Trailer</a> <div i-uil-grin/> [November, 2022]
+        
+      </li>
+      <li>
         Our new paper on surface tension in PBD is officially accepted by SIGGRAPH Asia! [September 18, 2022]
       </li>
       <li>
@@ -71,7 +75,12 @@ const { t } = useI18n()
             , Bin Wang, Bo Zhu, Baoquan Chen (* for joint first authors), November 2022 In SIGGRAPH Asia
           </div>
           <div class="flex flex-row pt-2">
-            TBD
+            <a href="/pubs-static/pbd-st.pdf" download class="text-xl">
+              <div class="i-carbon-document-pdf text-blue-500"/>
+            </a>
+            <a href="https://www.bilibili.com/video/BV1414y1H734" class="text-xl ml-3 mr-1">
+              <div class="i-carbon-logo-youtube text-blue-500"/>
+            </a>
           </div>
         </div>
       </div>

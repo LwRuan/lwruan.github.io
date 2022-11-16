@@ -11,7 +11,6 @@ import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
 import LinkAttributes from 'markdown-it-link-attributes'
-import Texmath from 'markdown-it-texmath'
 import Unocss from 'unocss/vite'
 import Shiki from 'markdown-it-shiki'
 
@@ -87,11 +86,11 @@ export default defineConfig({
             rel: 'noopener',
           },
         })
-        md.use(Texmath, {
-          engine: require('katex'),
-          delimiters: ['dollars','beg_end','brackets'],
-          katexOptions: { macros: {"\\b": "\\bm{#1}", "\\bb": "\\mathbf{#1}"} }
-        })
+        // md.use(Texmath, {
+        //   engine: require('katex'),
+        //   delimiters: ['dollars','beg_end','brackets'],
+        //   katexOptions: { macros: {"\\b": "\\bm{#1}", "\\bb": "\\mathbf{#1}"} }
+        // })
       },
     }),
 
