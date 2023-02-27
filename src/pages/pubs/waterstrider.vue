@@ -46,6 +46,11 @@
         scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" class="md:mx-auto w-full md:w-160 aspect-video rounded">
       </iframe>
     </div>
+    <div class="pt-10">
+      <iframe src="//player.bilibili.com/player.html?aid=903037163&bvid=BV1XP4y1R7R4&cid=904771587&page=1"
+        scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" class="md:mx-auto w-full md:w-160 aspect-video rounded">
+      </iframe>
+    </div>
     <div class="mt-10 pl-4 mx-auto bg-light-300 dark:bg-dark-100 rounded">
       @article{Ruan2021,<br />
       author = {Ruan, Liangwang and Liu, Jinyuan and Zhu, Bo and Sueda, Shinjiro and Wang, Bin and Chen, Baoquan},<br />
