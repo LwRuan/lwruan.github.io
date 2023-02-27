@@ -44,7 +44,7 @@ const { t } = useI18n()
         Our new paper on surface tension in PBD is officially accepted by SIGGRAPH Asia! [September 18, 2022]
       </li>
       <li>
-        I attend the on-site GAMES seminar in Hunan, great experience!
+        I attend the on-site GAMES seminar in Hunan, great experience! XD
         <RouterLink class="text-xl text-blue-500" to="/blogs/2022-08-15-games">
           <div i-uil-letter-chinese-a></div>
         </RouterLink> 
