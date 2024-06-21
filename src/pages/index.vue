@@ -8,7 +8,7 @@
 //     router.push(`/hi/${encodeURIComponent(name)}`)
 // }
 
-const { t } = useI18n()
+// const { t } = useI18n()
 </script>
 
 <template>

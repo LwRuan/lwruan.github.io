@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const router = useRouter()
-const { t } = useI18n()
+// const { t } = useI18n()
 </script>
 
 <template>
@@ -11,7 +11,8 @@ const { t } = useI18n()
     <RouterView />
     <div>
       <button btn text-sm m="3 t8" @click="router.back()">
-        {{ t('button.back') }}
+        <!-- {{ t('button.back') }} -->
+          Back
       </button>
     </div>
   </main>

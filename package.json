@@ -14,7 +14,6 @@
     "up": "taze major -I"
   },
   "dependencies": {
-    "@intlify/unplugin-vue-i18n": "^4.0.0",
     "@vueuse/core": "^9.0.0",
     "@vueuse/head": "^0.7.7",
     "katex": "^0.16.2",
@@ -30,7 +29,6 @@
     "@antfu/eslint-config": "^0.25.2",
     "@iconify-json/carbon": "^1.1.7",
     "@iconify-json/uil": "^1.1.2",
-    "@intlify/vite-plugin-vue-i18n": "^5.0.1",
     "@types/markdown-it-link-attributes": "^3.0.1",
     "@types/nprogress": "^0.2.0",
     "@unocss/preset-icons": "^0.45.7",
