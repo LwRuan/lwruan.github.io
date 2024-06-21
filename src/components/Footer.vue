@@ -1,11 +1,11 @@
 <script setup lang="ts">
 // const { t, availableLocales, locale } = useI18n()
 
-const toggleLocales = () => {
-  // change to some real logic
-  const locales = availableLocales
-  locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length]
-}
+// const toggleLocales = () => {
+//   // change to some real logic
+//   const locales = availableLocales
+//   locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length]
+// }
 </script>
 
 <template>
@@ -18,9 +18,9 @@ const toggleLocales = () => {
       <div i="carbon-sun dark:carbon-moon" />
     </button>
 
-    <a class="icon-btn mx-2" @click="toggleLocales()">
+    <!-- <a class="icon-btn mx-2" @click="toggleLocales()">
       <div i-carbon-language />
-    </a>
+    </a> -->
 
     <RouterLink class="icon-btn mx-2" to="/about">
       <div i-carbon-dicom-overlay />

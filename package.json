@@ -22,7 +22,6 @@
     "pinia": "^2.0.17",
     "vue": "^3.2.37",
     "vue-demi": "^0.13.6",
-    "vue-i18n": "^9.1.10",
     "vue-router": "^4.1.2"
   },
   "devDependencies": {
