@@ -18,7 +18,7 @@
     </div>
     <div class="flex flex-row">
       <div class="flex-grow"></div>
-      <a :href="`/pubs-static/vortex-bubble.pdf`" target="_blank" class="text-3xl">
+      <a :href="`/pubs-static/vortex-bubble.pdf`" download class="text-3xl">
         <div class="i-carbon-document-pdf text-blue-500" />
       </a>
       <!-- <a href="https://www.bilibili.com/video/BV1414y1H734" class="text-3xl ml-3 mr-1">
