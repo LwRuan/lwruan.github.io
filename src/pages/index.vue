@@ -32,7 +32,7 @@ const { t } = useI18n()
     </div>
 
     <!-- news -->
-    <div class="pt-10 text-3xl text-center">
+    <!-- <div class="pt-10 text-3xl text-center">
       {{t('section.news')}}
     </div>
     <ul class="pt-10 list-disc pl-10 text-xl">
@@ -50,14 +50,42 @@ const { t } = useI18n()
         </RouterLink> 
         [August 12, 2022]
       </li>
-    </ul>
+    </ul> -->
 
     <!-- pubs -->
     <div class="pt-10 text-3xl text-center">
       {{t('section.pub')}}
     </div>
     <div class="pt-10 flex flex-col place-content-center">
-      <div class="flex flex-row">
+      <div class="flex flex-row py-6">
+        <div class="w-58 my-auto flex-grow md:flex-grow-0">
+          <RouterLink to="/pubs/vortex-bubble">
+            <img src="/pubs-static/half-bubble.jpg" alt="" class="w-full rounded-lg">
+          </RouterLink>
+        </div>
+        <div class="pl-4 hidden w-0 md:block md:flex-grow">
+          <RouterLink to="/pubs/vortex-bubble" class="text-2xl">
+            A Vortex Particle-on-Mesh Method for Soap Film Simulation
+          </RouterLink>
+          <div class="text-xl">
+            Ningxiao Tao,
+            <div class="inline font-bold">
+              Liangwang Ruan
+            </div>
+            , Yitong Deng, Bo Zhu, Bin Wang, Baoquan Chen, August 2024 In SIGGRAPH
+          </div>
+          <div class="flex flex-row pt-2">
+            <a href="/pubs-static/vortex-bubble.pdf" target="_blank" class="text-xl">
+              <div class="i-carbon-document-pdf text-blue-500"/>
+            </a>
+            <!-- <a href="https://www.bilibili.com/video/BV1414y1H734" class="text-xl ml-3 mr-1">
+              <div class="i-carbon-logo-youtube text-blue-500"/>
+            </a> -->
+          </div>
+        </div>
+      </div>
+      <!-- pbd-st -->
+      <div class="flex flex-row py-6">
         <div class="w-58 my-auto flex-grow md:flex-grow-0">
           <RouterLink to="/pubs/pbd-st">
             <img src="/pubs-static/pbd-st-small.gif" alt="" class="w-full rounded-lg">
@@ -75,7 +103,7 @@ const { t } = useI18n()
             , Bin Wang, Bo Zhu, Baoquan Chen (* for joint first authors), November 2022 In SIGGRAPH Asia
           </div>
           <div class="flex flex-row pt-2">
-            <a href="/pubs-static/pbd-st.pdf" download class="text-xl">
+            <a href="/pubs-static/pbd-st.pdf" target="_blank" class="text-xl">
               <div class="i-carbon-document-pdf text-blue-500"/>
             </a>
             <a href="https://www.bilibili.com/video/BV1414y1H734" class="text-xl ml-3 mr-1">
@@ -102,13 +130,13 @@ const { t } = useI18n()
             , Jinyuan Liu*, Bo Zhu, Shinjiro Sueda, Bin Wang, Baoquan Chen (* for joint first authors), August 2021 In SIGGRAPH
           </div>
           <div class="flex flex-row pt-2">
-            <a href="/pubs-static/waterstrider.pdf" download class="text-xl">
+            <a href="/pubs-static/waterstrider.pdf" target="_blank" class="text-xl">
               <div class="i-carbon-document-pdf text-blue-500"/>
             </a>
             <a href="https://www.youtube.com/watch?v=3ejKNbtdfnY" class="text-xl ml-3 mr-1">
               <div class="i-carbon-logo-youtube text-blue-500"/>
             </a>
-            <a href="/pubs-static/waterstrider-slides.pdf" download class="text-xl mx-2">
+            <a href="/pubs-static/waterstrider-slides.pdf" target="_blank" class="text-xl mx-2">
               <div class="i-uil-presentation text-blue-500"/>
             </a>
           </div>
