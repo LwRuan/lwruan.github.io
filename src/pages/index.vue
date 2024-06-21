@@ -18,13 +18,16 @@ const { t } = useI18n()
       <img src="/avatar-small.jpg" class="w-58 h-58 rounded-lg mx-auto my-auto md:mx-0 md:mr-4">
       <div class="flex-grow p-4 mt-4 md:mt-0 text-left">
         <div class="text-4xl text-center pb-5 md:text-left">
-          {{t('author.name')}}
+          Liangwang Ruan
         </div>
         <div class="text-xl">
+          I'm currently a third-year Ph.D student from Center on Frontiers of Computing Studies (CFCS), Peking University, advised by <a href="http://cfcs.pku.edu.cn/baoquan/" class="underline">Prof. Baoquan Chen</a>. I also get my Bachelor's degree in Computer Science from Peking University in 2021. I'm interested in developing new simulation techniques for all kinds of nature phenomena including fluids, solids, clothes and their interactions for games and movies.
+        </div>
+        <!-- <div class="text-xl">
           {{t('author.intro1')}}
           <a href="http://cfcs.pku.edu.cn/baoquan/" class="underline">{{t('author.adviser')}}</a>
           {{t('author.intro2')}}
-        </div>
+        </div> -->
         <div class="text-xl pt-4">
           <div i-carbon-email class="align-middle"/> ruanliangwang@pku.edu.cn
         </div>
@@ -54,7 +57,7 @@ const { t } = useI18n()
 
     <!-- pubs -->
     <div class="pt-10 text-3xl text-center">
-      {{t('section.pub')}}
+      Publications
     </div>
     <div class="pt-10 flex flex-col place-content-center">
       <div class="flex flex-row py-6">

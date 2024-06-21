@@ -8,13 +8,13 @@
 //     router.push(`/hi/${encodeURIComponent(name)}`)
 // }
 
-const { t } = useI18n()
+// const { t } = useI18n()
 </script>
 
 <template>
   <div>
     <div class="text-4xl">
-      {{t('button.blogs')}}
+      Blogs
     </div>
     <div class="flex flex-col mt-10">
       <RouterLink class="pt-2 text-xl" to="/blogs/2022-08-15-games">

@@ -14,6 +14,7 @@
     "up": "taze major -I"
   },
   "dependencies": {
+    "@intlify/unplugin-vue-i18n": "^4.0.0",
     "@vueuse/core": "^9.0.0",
     "@vueuse/head": "^0.7.7",
     "katex": "^0.16.2",
