@@ -21,9 +21,9 @@
       <a :href="`/pubs-static/vortex-bubble.pdf`" download class="text-3xl">
         <div class="i-carbon-document-pdf text-blue-500" />
       </a>
-      <!-- <a href="https://www.bilibili.com/video/BV1414y1H734" class="text-3xl ml-3 mr-1">
+      <a href="https://www.bilibili.com/video/BV1Mm421G7g7" class="text-3xl ml-3 mr-1">
         <div class="i-carbon-logo-youtube text-blue-500" />
-      </a> -->
+      </a>
       <div class="flex-grow"></div>
     </div>
     <div class="pt-10">
@@ -41,11 +41,11 @@
       simulations of complex thin-film dynamics, achieving an unprecedented
       level of vortical details and physical realism.
     </div>
-    <!-- <div class="pt-10">
-      <iframe src="//player.bilibili.com/player.html?aid=775238515&bvid=BV1414y1H734&cid=892459446&page=1"
+    <div class="pt-10">
+      <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1606008846&bvid=BV1Mm421G7g7&cid=1610558649&p=1"
         scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" class="md:mx-auto w-full md:w-160 aspect-video rounded">
       </iframe>
-    </div> -->
+    </div>
     <div class="mt-10 pl-4 mx-auto bg-light-300 dark:bg-dark-100 rounded">
       @article{Tao2024,<br />
       author = {Tao, Ningxiao and Ruan, Liangwang and Deng, Yitong and Zhu, Bo and Wang, Bin and Chen, Baoquan},<br />
