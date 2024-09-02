@@ -1,0 +1,1 @@
+import{_ as a,o as n,c as s,a as e,b as c,F as r,f as _,r as m}from"./app.aaa69e03.js";const p={},d={class:"px-4 py-4 text-gray-700 dark:text-gray-200"};function f(i,l){const o=_,t=m("RouterView");return n(),s(r,null,[e(o),c("main",d,[e(t)])],64)}const x=a(p,[["render",f]]);export{x as default};

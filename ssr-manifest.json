@@ -27,6 +27,7 @@
   "../../../../../@vite-plugin-vue-layouts/generated-layouts": [],
   "src/App.vue?vue&type=script&setup=true&lang.ts": [],
   "../../../../../avatar-small.jpg": [],
+  "../../../../../pubs-static/torus.gif": [],
   "../../../../../pubs-static/half-bubble.jpg": [],
   "../../../../../pubs-static/pbd-st-small.gif": [],
   "../../../../../pubs-static/boat_leaf.gif": [],
@@ -39,7 +40,7 @@
   "../../../../../__uno.css": [],
   "src/main.ts": [],
   "index.html": [],
-  "assets/app.dc87e817.js-unocss-hash.css": [],
+  "assets/app.aaa69e03.js-unocss-hash.css": [],
   "node_modules/.pnpm/workbox-window@6.5.3/node_modules/workbox-window/build/workbox-window.prod.es5.mjs": [
     "/assets/virtual_pwa-register.3ff79d29.js"
   ],
@@ -47,54 +48,54 @@
     "/assets/virtual_pwa-register.3ff79d29.js"
   ],
   "src/layouts/404.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/404.65d9eef3.js"
+    "/assets/404.f59cdab4.js"
   ],
   "src/layouts/404.vue": [
-    "/assets/404.65d9eef3.js"
+    "/assets/404.f59cdab4.js"
   ],
   "src/layouts/home.vue": [
-    "/assets/home.d4b5b632.js"
+    "/assets/home.5b0cd6bb.js"
   ],
   "src/pages/README.md": [
-    "/assets/README.bb5d5334.js"
+    "/assets/README.8bda06cd.js"
   ],
   "src/pages/[...all].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_...all_.0bfc3ac3.js"
+    "/assets/_...all_.445b4527.js"
   ],
   "src/pages/[...all].vue": [
-    "/assets/_...all_.0bfc3ac3.js"
+    "/assets/_...all_.445b4527.js"
   ],
   "../../../../../talks/emotional-rollercoaster.png": [
-    "/assets/2022-08-15-games.603b56bb.js"
+    "/assets/2022-08-15-games.3c7f559f.js"
   ],
   "../../../../../talks/grad-work-output.png": [
-    "/assets/2022-08-15-games.603b56bb.js"
+    "/assets/2022-08-15-games.3c7f559f.js"
   ],
   "../../../../../talks/2022-games.jpg": [
-    "/assets/2022-08-15-games.603b56bb.js"
+    "/assets/2022-08-15-games.3c7f559f.js"
   ],
   "src/pages/blogs/2022-08-15-games.md": [
-    "/assets/2022-08-15-games.603b56bb.js"
+    "/assets/2022-08-15-games.3c7f559f.js"
   ],
   "src/pages/blogs/index.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/index.be413f13.js"
+    "/assets/index.007fc024.js"
   ],
   "src/pages/blogs/index.vue": [
-    "/assets/index.be413f13.js"
+    "/assets/index.007fc024.js"
   ],
   "../../../../../pubs-static/pbd-st.jpg": [
-    "/assets/pbd-st.1c3e10cd.js"
+    "/assets/pbd-st.0135efb4.js"
   ],
   "src/pages/pubs/pbd-st.vue": [
-    "/assets/pbd-st.1c3e10cd.js"
+    "/assets/pbd-st.0135efb4.js"
   ],
   "src/pages/pubs/vortex-bubble.vue": [
-    "/assets/vortex-bubble.a856aa09.js"
+    "/assets/vortex-bubble.ac397e99.js"
   ],
   "../../../../../pubs-static/3DBoatWater2000013.jpg": [
-    "/assets/waterstrider.cb2266f2.js"
+    "/assets/waterstrider.25833b1f.js"
   ],
   "src/pages/pubs/waterstrider.vue": [
-    "/assets/waterstrider.cb2266f2.js"
+    "/assets/waterstrider.25833b1f.js"
   ]
 }
