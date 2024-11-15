@@ -26,7 +26,7 @@
         <!-- <a class="icon-btn mx-2" :title="t('button.toggle_langs')" @click="toggleLocales()">
           <div i-carbon-language />
         </a> -->
-        <a class="icon-btn mx-2" rel="noreferrer" href="https://github.com/lwruan" target="_blank" title="GitHub">
+        <a class="icon-btn mx-2" rel="noreferrer" href="https://github.com/lwruan" download title="GitHub">
           <div i-carbon-logo-github />
         </a>
       </div>
