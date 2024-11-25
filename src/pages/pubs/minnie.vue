@@ -47,7 +47,7 @@
     </div>
     <div class="mx-auto mt-10 rounded bg-light-300 pl-4 dark:bg-dark-100">
       @article{Ruan2024MiNNIE,<br>
-      author = {Ruan, Liangwang and Bin, Wang and Tiantian, Liu and Chen, Baoquan},<br>
+      author = {Ruan, Liangwang and Wang, bin and Liu, Tiantian and Chen, Baoquan},<br>
       title = {MiNNIE: a Mixed Multigrid Method for Real-time Simulation of Nonlinear Near-Incompressible Elastics},<br>
       year = {2024},<br>
       issue_date = {December 2021},<br>
