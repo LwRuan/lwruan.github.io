@@ -8,7 +8,7 @@
       <img src="/avatar-small.jpg" class="mx-auto my-auto h-58 w-58 rounded-lg md:mx-0 md:mr-4">
       <div class="mt-4 flex-grow p-4 text-left md:mt-0">
         <div class="pb-5 text-center text-4xl md:text-left">
-          Liangwang Ruan
+          Liangwang Ruan 阮良旺
         </div>
         <div class="text-xl">
           I'm currently a fourth-year Ph.D student from School of Computer Science, Peking University, advised by <a href="http://cfcs.pku.edu.cn/baoquan/" class="underline">Prof. Baoquan Chen</a>. I also got my Bachelor's degree in Computer Science from Peking University in 2021. I'm interested in developing new simulation techniques for all kinds of nature phenomena including fluids, solids, clothes and their interactions.
@@ -25,6 +25,10 @@
           <a href="/resume.pdf" download class="ml-4">
             <div i-carbon-document class="align-middle" />
             <div class="inline underline">Resume </div>
+          </a>
+          <a href="https://rlw1999.github.io" class="ml-4">
+            <div i-carbon-blog class="align-middle" />
+            <div class="inline underline">Blog </div>
           </a>
         </div>
       </div>
