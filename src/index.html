@@ -1,157 +1,179 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>个人主页</title>
+  <title>Liangwang Ruan</title>
   <link rel="stylesheet" href="css/output.css">
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
   
-  <!-- 导航栏 -->
-  <nav class="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 transition-all duration-300">
-    <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="#" class="text-xl font-bold text-primary-600 dark:text-primary-500">Portfolio</a>
-      <div class="flex items-center gap-4">
-        <a href="#about" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 transition">关于</a>
-        <a href="#papers" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 transition">论文</a>
-        <a href="#projects" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 transition">项目</a>
-        <a href="#interests" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 transition">兴趣</a>
-        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition" title="切换主题">
-          ⚡
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- 主内容 -->
-  <main class="pt-20">
+  <!-- Main Content -->
+  <main class="pt-4">
     
-    <!-- Hero / 头像简介 -->
+    <!-- Hero / Profile -->
     <section id="about" class="section-container text-center">
-      <div class="mb-8">
-        <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-4xl text-white font-bold shadow-lg">
-          <!-- 替换为你的头像图片 -->
-          <span>头像</span>
-        </div>
-        <h1 class="text-4xl font-bold mb-4">你的名字</h1>
-        <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">职位 / 专业领域</p>
-        <p class="max-w-2xl mx-auto text-gray-700 dark:text-gray-300 leading-relaxed">
-          这里是个人简介。你可以在这里介绍自己的背景、研究方向、职业目标等。
-          支持中文显示，简洁明了的描述会让访客更容易了解你。
+      <div class="mb-4">
+        <img src="assets/images/avatar.png" alt="Your Name" class="h-64 w-64 mx-auto mb-6 rounded-2xl object-cover">
+        <h1 class="text-4xl font-bold mb-2"> Liangwang Ruan <span class="text-4xl text-gray-500 dark:text-gray-400 font-normal">(阮良旺)</span></h1>
+        <p class="text-l italic text-gray-600 dark:text-gray-400">or just call me <span class="underline">Lian</span></p>
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">Final Year Ph.D at Peking University</p>
+        <p class="max-w-2xl mx-auto text-gray-700 dark:text-gray-300 leading-relaxed text-left">
+          I am a final-year Ph.D. candidate from the school of Computer Science, Peking University, supervised by <a href="https://baoquanchen.info/" target="_blank" class="underline">Prof. Baoquan Chen</a>, and also a member of the <a href="https://vcl.pku.edu.cn/" target="_blank" class="underline">VCL (Visual Computing and Learning) Lab</a>. I obtained my Bachelor's degree in Computer Science from the Turing Class in Peking University. During my past research career, I focused on computer graphics with a specialization in physical simulation and optimization, and was honored to be advised by <a href="https://binwangbfa.github.io/" target="_blank" class="underline">Dr. Bin Wang</a>, <a href="https://tiantianliu.cn/" target="_blank" class="underline">Dr. Tiantian Liu</a>, <a href="https://faculty.cc.gatech.edu/~bozhu/" target="_blank" class="underline">Prof. Bo Zhu</a>, and <a href="https://people.engr.tamu.edu/sueda/index.html" target="_blank" class="underline">Prof. Shinjiro Sueda</a>. Currently, I am perticularly interested in understanding and building robot intelligence, and will join <a href="https://x2robot.com/en" target="_blank" class="underline">X Square Robot</a> this summer.
+        </p>
+        <p class="max-w-2xl mx-auto text-gray-700 dark:text-gray-300 leading-relaxed text-left mt-6">
+          I have a <a href="https://rlw1999.github.io/zh/" target="_blank" class="underline">blog</a> in Chinese if you are interested.
         </p>
       </div>
       
-      <!-- 社交链接 -->
+      <!-- Social Links -->
       <div class="flex justify-center gap-4">
-        <a href="https://github.com" target="_blank" class="px-6 py-2 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium hover:opacity-80 transition">
-          GitHub
+        <a href="https://github.com/lwruan" target="_blank" class="p-3 rounded-full border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition" aria-label="GitHub">
+          <i data-lucide="github" class="w-6 h-6"></i>
         </a>
-        <a href="mailto:email@example.com" class="px-6 py-2 rounded-full border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition">
-          联系我
+        <a href="mailto:ruanliangwang2@gmail.com" class="p-3 rounded-full border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition" aria-label="Email">
+          <i data-lucide="mail" class="w-6 h-6"></i>
+        </a>
+        <a href="https://www.zhihu.com/people/lwruan" target="_blank" class="p-3 rounded-full border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition" aria-label="知乎">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 6h6v12h-2l-2 2l-1-2h-1zM4 12h6.5m0-6h-5M6 4c-.5 2.5-1.5 3.5-2.5 4.5M8 6v7c0 4.5-2 5.5-4 7m7-2l-3-5"/></svg>
+        </a>
+        <a href="assets/cv.pdf" target="_blank" class="p-3 rounded-full border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition" aria-label="CV">
+          <!-- <i data-lucide="file-text" class="w-6 h-6"></i> -->
+           CV
         </a>
       </div>
     </section>
 
-    <!-- 论文发表 -->
+    <!-- Publications -->
     <section id="papers" class="section-container border-t border-gray-200 dark:border-gray-800">
-      <h2 class="text-3xl font-bold mb-8 text-center">论文发表</h2>
-      <div class="space-y-6">
+      <h2 class="text-3xl font-bold mb-4 text-center">Publications</h2>
+      <div class="space-y-3">
         
-        <article class="p-6 rounded-xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold mb-2">论文标题示例</h3>
-          <p class="text-gray-600 dark:text-gray-400 mb-3">作者列表 · 期刊/会议名称 · 2024</p>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">
-            论文摘要简述。介绍研究内容、方法和主要结论。
-          </p>
-          <div class="flex gap-3">
-            <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline">[PDF]</a>
-            <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline">[Code]</a>
+        <article class="p-4 rounded-xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition">
+          <div class="flex flex-col md:flex-row gap-4">
+            <!-- Paper Image -->
+            <div class="w-full md:w-56 flex-shrink-0">
+              <img src="assets/pub/staged.jpeg" alt="Paper Thumbnail" class="w-full aspect-video md:aspect-video object-cover rounded-lg">
+            </div>
+            <!-- Paper Info -->
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold">STAGED: Stress-Tensor Assisted Global-local-global solver for interactive Elastic shape Design</h3>
+              <p class="text-gray-600 dark:text-gray-400"><span class="font-bold">Liangwang Ruan</span>, Bin Wang, Tiantian Liu, Baoquan Chen, May 2026 in Eurographics</p>
+              <div class="flex gap-3">
+                <a href="assets/pub/staged.pdf" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">[Paper]</a>
+              </div>
+            </div>
           </div>
         </article>
 
-        <article class="p-6 rounded-xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold mb-2">另一篇论文标题</h3>
-          <p class="text-gray-600 dark:text-gray-400 mb-3">作者列表 · 期刊/会议名称 · 2023</p>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">
-            论文摘要简述。
-          </p>
-          <div class="flex gap-3">
-            <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline">[PDF]</a>
+        <article class="p-4 rounded-xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition">
+          <div class="flex flex-col md:flex-row gap-4">
+            <!-- Paper Image -->
+            <div class="w-full md:w-56 flex-shrink-0">
+              <img src="assets/pub/diff-collision.png" alt="Paper Thumbnail" class="w-full aspect-video md:aspect-video object-cover rounded-lg">
+            </div>
+            <!-- Paper Info -->
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold">Robust Differentiable Collision Detection for General Objects</h3>
+              <p class="text-gray-600 dark:text-gray-400">Jiayi Chen, Wei Zhao, <span class="font-bold">Liangwang Ruan</span>, Baoquan Chen, He Wang, June 2026 in ICRA</p>
+              <div class="flex gap-3">
+                <a href="assets/pub/diff-collision.pdf" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">[Paper]</a>
+              </div>
+            </div>
           </div>
         </article>
 
-      </div>
-    </section>
-
-    <!-- 项目经历 -->
-    <section id="projects" class="section-container border-t border-gray-200 dark:border-gray-800">
-      <h2 class="text-3xl font-bold mb-8 text-center">项目经历</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        
-        <div class="p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition">
-          <h3 class="text-xl font-semibold mb-2">项目名称</h3>
-          <p class="text-gray-600 dark:text-gray-400 mb-4">
-            项目描述。介绍项目背景、你的职责和技术栈。
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 text-sm rounded-full bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300">Python</span>
-            <span class="px-3 py-1 text-sm rounded-full bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300">React</span>
+        <article class="p-4 rounded-xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition">
+          <div class="flex flex-col md:flex-row gap-4">
+            <!-- Paper Image -->
+            <div class="w-full md:w-56 flex-shrink-0">
+              <img src="assets/pub/torus.gif" alt="Paper Thumbnail" class="w-full aspect-video md:aspect-video object-cover rounded-lg">
+            </div>
+            <!-- Paper Info -->
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold">MiNNIE: a Mixed Multigrid Method for Real-time Simulation of Nonlinear Near-Incompressible Elastics</h3>
+              <p class="text-gray-600 dark:text-gray-400"><span class="font-bold">Liangwang Ruan</span>, Bin Wang, Tiantian Liu, Baoquan Chen, December 2024 In SIGGRAPH Asia</p>
+              <div class="flex gap-3">
+                <a href="assets/pub/minnie.pdf" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">[Paper]</a>
+                <a href="assets/pub/minnie-sup.pdf" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">[Supp]</a>
+                <a href="https://github.com/LwRuan/MiNNIE" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">[Code]</a>
+                <a href="https://www.bilibili.com/video/BV1xZS4YXE65" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">[Video]</a>
+              </div>
+            </div>
           </div>
-          <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline">查看项目 →</a>
-        </div>
+        </article>
 
-        <div class="p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition">
-          <h3 class="text-xl font-semibold mb-2">另一个项目</h3>
-          <p class="text-gray-600 dark:text-gray-400 mb-4">
-            项目描述。
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 text-sm rounded-full bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300">JavaScript</span>
-            <span class="px-3 py-1 text-sm rounded-full bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300">Node.js</span>
+        <article class="p-4 rounded-xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition">
+          <div class="flex flex-col md:flex-row gap-4">
+            <!-- Paper Image -->
+            <div class="w-full md:w-56 flex-shrink-0">
+              <img src="assets/pub/half-bubble.jpg" alt="Paper Thumbnail" class="w-full aspect-video md:aspect-video object-cover rounded-lg">
+            </div>
+            <!-- Paper Info -->
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold">A Vortex Particle-on-Mesh Method for Soap Film Simulation</h3>
+              <p class="text-gray-600 dark:text-gray-400">Ningxiao Tao, <span class="font-bold">Liangwang Ruan</span>, Yitong Deng, Bo Zhu, Bin Wang, Baoquan Chen, August 2024 In SIGGRAPH</p>
+              <div class="flex gap-3">
+                <a href="assets/pub/vortex-bubble.pdf" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">[Paper]</a>
+                <a href="https://www.bilibili.com/video/BV1Mm421G7g7" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">[Video]</a>
+              </div>
+            </div>
           </div>
-          <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline">查看项目 →</a>
-        </div>
+        </article>
 
-      </div>
-    </section>
+        <article class="p-4 rounded-xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition">
+          <div class="flex flex-col md:flex-row gap-4">
+            <!-- Paper Image -->
+            <div class="w-full md:w-56 flex-shrink-0">
+              <img src="assets/pub/pbd-st-small.gif" alt="Paper Thumbnail" class="w-full aspect-video md:aspect-video object-cover rounded-lg">
+            </div>
+            <!-- Paper Info -->
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold">Position-based Surface Tension Flow</h3>
+              <p class="text-gray-600 dark:text-gray-400">Jingrui Xing*, <span class="font-bold">Liangwang Ruan</span>*, Bin Wang, Bo Zhu, Baoquan Chen (* for joint first authors), November 2022 In SIGGRAPH Asia</p>
+              <div class="flex gap-3">
+                <a href="assets/pub/pbd-st.pdf" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">[Paper]</a>
+                <a href="https://www.bilibili.com/video/BV1414y1H734" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">[Video]</a>
+              </div>
+            </div>
+          </div>
+        </article>
 
-    <!-- 兴趣爱好 -->
-    <section id="interests" class="section-container border-t border-gray-200 dark:border-gray-800">
-      <h2 class="text-3xl font-bold mb-8 text-center">兴趣爱好</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        
-        <div class="p-4 text-center rounded-xl bg-gray-50 dark:bg-gray-800">
-          <div class="text-4xl mb-2">📷</div>
-          <h3 class="font-medium">摄影</h3>
-        </div>
-
-        <div class="p-4 text-center rounded-xl bg-gray-50 dark:bg-gray-800">
-          <div class="text-4xl mb-2">📚</div>
-          <h3 class="font-medium">阅读</h3>
-        </div>
-
-        <div class="p-4 text-center rounded-xl bg-gray-50 dark:bg-gray-800">
-          <div class="text-4xl mb-2">🏃</div>
-          <h3 class="font-medium">跑步</h3>
-        </div>
-
-        <div class="p-4 text-center rounded-xl bg-gray-50 dark:bg-gray-800">
-          <div class="text-4xl mb-2">🎮</div>
-          <h3 class="font-medium">游戏</h3>
-        </div>
+        <article class="p-4 rounded-xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition">
+          <div class="flex flex-col md:flex-row gap-4">
+            <!-- Paper Image -->
+            <div class="w-full md:w-56 flex-shrink-0">
+              <img src="assets/pub/boat_leaf.gif" alt="Paper Thumbnail" class="w-full aspect-video md:aspect-video object-cover rounded-lg">
+            </div>
+            <!-- Paper Info -->
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold">Solid-Fluid Interaction with Surface-Tension-Dominant Contact</h3>
+              <p class="text-gray-600 dark:text-gray-400"><span class="font-bold">Liangwang Ruan</span>*, Jinyuan Liu*, Bo Zhu, Shinjiro Sueda, Bin Wang, Baoquan Chen (* for joint first authors), August 2021 In SIGGRAPH
+</p>
+              <div class="flex gap-3">
+                <a href="assets/pub/waterstrider.pdf" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">[Paper]</a>
+                <a href="https://www.bilibili.com/video/BV18p4y14761" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">[Video]</a>
+                <a href="https://www.bilibili.com/video/BV1XP4y1R7R4" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">[Presentation]</a>
+                <a href="assets/pub/waterstrider-slides.pdf" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">[Slides]</a>
+              </div>
+            </div>
+          </div>
+        </article>
 
       </div>
     </section>
 
   </main>
 
-  <!-- 页脚 -->
-  <footer class="py-8 text-center text-gray-500 dark:text-gray-500 border-t border-gray-200 dark:border-gray-800">
-    <p>&copy; 2024 你的名字. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="py-4 text-center text-gray-500 dark:text-gray-500 border-t border-gray-200 dark:border-gray-800">
+    <p>&copy; 2026 Liangwang Ruan. All rights reserved.</p>
   </footer>
 
   <script src="js/theme.js"></script>
   <script src="js/main.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

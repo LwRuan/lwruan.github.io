@@ -1,86 +1,47 @@
-// 主题切换功能
+// Theme management based on local time
 (function() {
-  // 获取主题设置
-  function getTheme() {
-    return localStorage.getItem('theme') || 'auto';
+  // Get current hour (0-23)
+  function getLocalHour() {
+    try {
+      return new Date().getHours();
+    } catch (e) {
+      return null;
+    }
   }
 
-  // 设置主题
-  function setTheme(theme) {
-    localStorage.setItem('theme', theme);
-    applyTheme(theme);
+  // Determine if it should be dark theme based on local time
+  // Dark: 18:00 - 06:00, Light: 06:00 - 18:00
+  // Default to light if cannot determine
+  function isDarkByTime() {
+    const hour = getLocalHour();
+    if (hour === null) return false; // Default to light
+    return hour < 6 || hour >= 18;
   }
 
-  // 应用主题
-  function applyTheme(theme) {
+  // Apply theme
+  function applyTheme() {
     const html = document.documentElement;
+    const isDark = isDarkByTime();
     
-    if (theme === 'dark') {
+    if (isDark) {
       html.classList.add('dark');
-    } else if (theme === 'light') {
-      html.classList.remove('dark');
     } else {
-      // auto - 跟随系统
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        html.classList.add('dark');
-      } else {
-        html.classList.remove('dark');
-      }
+      html.classList.remove('dark');
+      // html.classList.add('dark');
     }
   }
 
-  // 切换主题
-  function toggleTheme() {
-    const currentTheme = getTheme();
-    const themes = ['light', 'dark', 'auto'];
-    const currentIndex = themes.indexOf(currentTheme);
-    const nextTheme = themes[(currentIndex + 1) % themes.length];
-    setTheme(nextTheme);
-    updateThemeIcon(nextTheme);
-  }
-
-  // 更新主题图标
-  function updateThemeIcon(theme) {
-    const icons = {
-      light: '☀️',
-      dark: '🌙',
-      auto: '⚡'
-    };
-    const btn = document.getElementById('theme-toggle');
-    if (btn) {
-      btn.textContent = icons[theme] || icons.auto;
-      btn.title = `主题: ${theme}`;
-    }
-  }
-
-  // 初始化
+  // Initialize
   function init() {
-    const theme = getTheme();
-    applyTheme(theme);
-    updateThemeIcon(theme);
-
-    // 监听系统主题变化
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-      if (getTheme() === 'auto') {
-        applyTheme('auto');
-      }
-    });
-
-    // 绑定切换按钮
-    const toggleBtn = document.getElementById('theme-toggle');
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', toggleTheme);
-    }
+    applyTheme();
   }
 
-  // 暴露到全局
+  // Expose to global
   window.themeManager = {
-    get: getTheme,
-    set: setTheme,
-    toggle: toggleTheme
+    apply: applyTheme
   };
 
-  // DOM 加载完成后初始化
+  // Initialize on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
