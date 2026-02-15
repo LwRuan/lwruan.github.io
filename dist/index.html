@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人主页</title>
+  <link rel="stylesheet" href="css/output.css">
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+  
+  <!-- 导航栏 -->
+  <nav class="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 transition-all duration-300">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="text-xl font-bold text-primary-600 dark:text-primary-500">Portfolio</a>
+      <div class="flex items-center gap-4">
+        <a href="#about" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 transition">关于</a>
+        <a href="#papers" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 transition">论文</a>
+        <a href="#projects" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 transition">项目</a>
+        <a href="#interests" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 transition">兴趣</a>
+        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition" title="切换主题">
+          ⚡
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 主内容 -->
+  <main class="pt-20">
+    
+    <!-- Hero / 头像简介 -->
+    <section id="about" class="section-container text-center">
+      <div class="mb-8">
+        <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-4xl text-white font-bold shadow-lg">
+          <!-- 替换为你的头像图片 -->
+          <span>头像</span>
+        </div>
+        <h1 class="text-4xl font-bold mb-4">你的名字</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">职位 / 专业领域</p>
+        <p class="max-w-2xl mx-auto text-gray-700 dark:text-gray-300 leading-relaxed">
+          这里是个人简介。你可以在这里介绍自己的背景、研究方向、职业目标等。
+          支持中文显示，简洁明了的描述会让访客更容易了解你。
+        </p>
+      </div>
+      
+      <!-- 社交链接 -->
+      <div class="flex justify-center gap-4">
+        <a href="https://github.com" target="_blank" class="px-6 py-2 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium hover:opacity-80 transition">
+          GitHub
+        </a>
+        <a href="mailto:email@example.com" class="px-6 py-2 rounded-full border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+          联系我
+        </a>
+      </div>
+    </section>
+
+    <!-- 论文发表 -->
+    <section id="papers" class="section-container border-t border-gray-200 dark:border-gray-800">
+      <h2 class="text-3xl font-bold mb-8 text-center">论文发表</h2>
+      <div class="space-y-6">
+        
+        <article class="p-6 rounded-xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold mb-2">论文标题示例</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-3">作者列表 · 期刊/会议名称 · 2024</p>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            论文摘要简述。介绍研究内容、方法和主要结论。
+          </p>
+          <div class="flex gap-3">
+            <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline">[PDF]</a>
+            <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline">[Code]</a>
+          </div>
+        </article>
+
+        <article class="p-6 rounded-xl bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold mb-2">另一篇论文标题</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-3">作者列表 · 期刊/会议名称 · 2023</p>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            论文摘要简述。
+          </p>
+          <div class="flex gap-3">
+            <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline">[PDF]</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 项目经历 -->
+    <section id="projects" class="section-container border-t border-gray-200 dark:border-gray-800">
+      <h2 class="text-3xl font-bold mb-8 text-center">项目经历</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <div class="p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition">
+          <h3 class="text-xl font-semibold mb-2">项目名称</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">
+            项目描述。介绍项目背景、你的职责和技术栈。
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 text-sm rounded-full bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300">Python</span>
+            <span class="px-3 py-1 text-sm rounded-full bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300">React</span>
+          </div>
+          <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline">查看项目 →</a>
+        </div>
+
+        <div class="p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition">
+          <h3 class="text-xl font-semibold mb-2">另一个项目</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">
+            项目描述。
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 text-sm rounded-full bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300">JavaScript</span>
+            <span class="px-3 py-1 text-sm rounded-full bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300">Node.js</span>
+          </div>
+          <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline">查看项目 →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 兴趣爱好 -->
+    <section id="interests" class="section-container border-t border-gray-200 dark:border-gray-800">
+      <h2 class="text-3xl font-bold mb-8 text-center">兴趣爱好</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        
+        <div class="p-4 text-center rounded-xl bg-gray-50 dark:bg-gray-800">
+          <div class="text-4xl mb-2">📷</div>
+          <h3 class="font-medium">摄影</h3>
+        </div>
+
+        <div class="p-4 text-center rounded-xl bg-gray-50 dark:bg-gray-800">
+          <div class="text-4xl mb-2">📚</div>
+          <h3 class="font-medium">阅读</h3>
+        </div>
+
+        <div class="p-4 text-center rounded-xl bg-gray-50 dark:bg-gray-800">
+          <div class="text-4xl mb-2">🏃</div>
+          <h3 class="font-medium">跑步</h3>
+        </div>
+
+        <div class="p-4 text-center rounded-xl bg-gray-50 dark:bg-gray-800">
+          <div class="text-4xl mb-2">🎮</div>
+          <h3 class="font-medium">游戏</h3>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="py-8 text-center text-gray-500 dark:text-gray-500 border-t border-gray-200 dark:border-gray-800">
+    <p>&copy; 2024 你的名字. All rights reserved.</p>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
